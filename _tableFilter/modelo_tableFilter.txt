@@ -1,0 +1,33 @@
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="../../_tableFilter/filtergrid.css" media="screen" />
+<script type="text/javascript" src="../../_tableFilter/tablefilter_all.js"></script>
+
+</head>
+
+
+<table id="tabla1">
+  .....
+</table>
+<script language='javascript' type='text/javascript'>
+     //<![CDATA[ 
+     var tableclientes_Props =  {
+                col_2: "select",
+                col_1: "select",
+                display_all_text: " Todo ",
+                sort_select: true,
+                   				     
+		//paging: true,					    //paginar
+		//paging_length: 3,			    //3 filas por pagina
+		//rows_counter: true,			 //mostrar cantidad de filas
+		//rows_counter_text: "Rows:", 
+		btn_reset: true, 
+		//loader: true, 
+		//loader_text: "Filrando datos..."
+		};  
+     var tabl = "tabla1";
+     var tf1 = setFilterGrid(tabl,tableclientes_Props);
+      
+     //]]> 
+     </script>

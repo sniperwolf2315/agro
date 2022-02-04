@@ -1,0 +1,158 @@
+
+Periodo: 20200724: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 
+
+Periodo: 20200724: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 
+
+Periodo: 20200724: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 100070947--
+
+Periodo: 20200731: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 
+
+Periodo: 20200731: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 
+
+Periodo: 20200726: Ordenes actualizadas faltantes en SqlServer:  , Sequences de estados actaulizados en 0 en SqlServer: 100071332--100071333--
+
+Subida:2020-08-03 13:25:16, Ingreso: 20200731: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100073057--
+
+Subida:2020-08-03 13:29:16, Ingreso: 20200802: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100073579--
+
+Subida:2020-08-04 13:16:03, Ingreso: 20200803: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100073973--
+
+Subida:2020-08-05 17:27:57, Ingreso: 20200804: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100074227--
+
+Subida:2020-08-06 13:05:11, Ingreso: 20200805: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100074568--100074569--
+
+Subida:2020-08-08 13:25:23, Ingreso: 20200807: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100075144--
+
+Subida:2020-08-10 17:13:04, Ingreso: 20200809: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100076031--100076100--
+
+Subida:2020-08-12 17:21:32, Ingreso: 20200811: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100076690--
+
+Subida:2020-08-12 17:21:43, Ingreso: 20200812: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100076754--
+
+Subida:2020-08-18 12:41:57, Ingreso: 20200816: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100078212--
+
+Subida:2020-08-24 13:31:30, Ingreso: 20200823: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100080515--
+
+Subida:2020-08-29 13:35:05, Ingreso: 20200828: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100082171--100082191--
+
+Subida:2020-08-31 13:23:55, Ingreso: 20200830: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100082782--100082939--
+
+Subida:2020-09-02 13:36:39, Ingreso: 20200901: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100083349--
+
+Subida:2020-09-03 22:04:27, Ingreso: 20200903: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100083976--
+
+Subida:2020-09-15 01:23:11, Ingreso: 20200914: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100086437--
+
+Subida:2020-09-16 16:20:16, Ingreso: 20200916: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 
+
+Subida:2020-09-16 16:22:12, Ingreso: 20200915: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100086822--
+
+Subida:2020-09-21 01:56:56, Ingreso: 20200919: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100088460--
+
+Subida:2020-09-22 15:06:55, Ingreso: 20200919: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100088460--
+
+Subida:2020-09-22 15:38:03, Ingreso: 20200919: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100088460--
+
+Subida:2020-09-22 16:14:41, Ingreso: 20200919: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100088460--
+
+Subida:2020-09-24 14:05:33, Ingreso: 20200924: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100089847--
+
+Subida:2020-10-01 22:17:50, Ingreso: 20201001: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100092041--
+
+Subida:2020-10-05 13:34:49, Ingreso: 20201004: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 100092562--
+
+Subida:2020-10-14 16:54:38, Ingreso: 20201014: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 25--31--
+
+Subida:2020-10-14 17:21:12, Ingreso: 20201014: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 25--31--
+
+Subida:2020-10-15 16:52:32, Ingreso: 20201014: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 25--43--55--56--59--104--105--107--119--
+
+Subida:2020-10-15 16:57:29, Ingreso: 20201015: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 137--
+
+Subida:2020-10-22 13:32:15, Ingreso: 20201021: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 1799--
+
+Subida:2020-10-22 16:48:32, Ingreso: 20201021: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 1799--
+
+Subida:2020-10-23 13:36:24, Ingreso: 20201022: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 2275--
+
+Subida:2020-11-03 14:56:26, Ingreso: 20201101: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 4672--
+
+Subida:2020-11-05 22:33:09, Ingreso: 20201105: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 5263--
+
+Subida:2020-11-09 14:44:26, Ingreso: 20201106: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 5712--
+
+Subida:2020-11-09 14:52:44, Ingreso: 20200707: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 
+
+Subida:2020-11-09 14:52:57, Ingreso: 20201108: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 6266--
+
+Subida:2020-11-12 15:35:46, Ingreso: 20201112: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 6888--
+
+Subida:2020-11-17 13:46:12, Ingreso: 20201114: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 7252--
+
+Subida:2020-11-17 13:48:09, Ingreso: 20201116: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 7365--7366--7367--7368--7369--7370--7371--7372--7373--7415--
+
+Subida:2020-11-17 22:10:24, Ingreso: 20201117: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 7551--
+
+Subida:2020-11-27 15:53:52, Ingreso: 20201127: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 11092--
+
+Subida:2020-11-30 13:42:47, Ingreso: 20201128: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 12323--12375--
+
+Subida:2020-11-30 13:44:03, Ingreso: 20201129: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 12831--12857--
+
+Subida:2020-11-30 16:08:01, Ingreso: 20201125: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 10454--
+
+Subida:2020-11-30 22:19:12, Ingreso: 20201130: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 13320--
+
+Subida:2020-12-03 13:54:56, Ingreso: 20201202: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 14269--
+
+Subida:2020-12-21 14:09:09, Ingreso: 20201219: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 17416--17524--17525--17526--17527--17528--17529--17530--17531--17532--17533--17534--17535--17539--17540--17541--17543--17544--17545--17546--17547--17548--17549--17550--17551--17552--17553--17554--17556--17558--17559--17560--17561--17562--17563--17564--17565--17566--17567--17569--17570--17571--17574--17575--17576--17577--17579--17580--17582--17584--17585--17588--17589--17591--17593--17594--17595--17596--17597--
+
+Subida:2020-12-21 14:21:03, Ingreso: 20201220: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 17599--17600--
+
+Subida:2020-12-21 14:31:40, Ingreso: 20201219: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 17564--
+
+Subida:2020-12-21 16:43:39, Ingreso: 20201215: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 15838--
+
+Subida:2020-12-21 17:24:43, Ingreso: 20201217: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 16411--
+
+Subida:2020-12-21 17:25:24, Ingreso: 20201214: NumOrdenes actualizadas faltantes en SqlServer: 15599->ItemsIbs: SI-- , Sequences estados cambiados a 0 en SqlServer: 
+
+Subida:2020-12-28 18:07:43, Ingreso: 20201225: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 
+
+Subida:2020-12-28 18:09:25, Ingreso: 20201228: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 19139--19173--
+
+Subida:2020-12-29 13:12:34, Ingreso: 20201228: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 19321--
+
+Subida:2021-01-06 12:49:40, Ingreso: 20210104: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 20336--
+
+Subida:2021-01-06 12:49:50, Ingreso: 20210105: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 20703--
+
+Subida:2021-01-08 19:44:57, Ingreso: 20210106: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 20855--21304--
+
+Subida:2021-01-08 19:47:22, Ingreso: 20210107: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 21532--21630--
+
+Subida:2021-01-13 21:00:15, Ingreso: 20210109: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 22293--
+
+Subida:2021-01-27 23:13:48, Ingreso: 20210127: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 28919--28965--
+
+Subida:2021-01-28 17:36:05, Ingreso: 20210128: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 29172--
+
+Subida:2021-01-28 20:37:10, Ingreso: 20210128: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 29172--
+
+Subida:2021-01-29 22:13:40, Ingreso: 20210129: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 30044--
+
+Subida:2021-02-01 13:24:39, Ingreso: 20210129: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 30204--30205--
+
+Subida:2021-02-08 15:55:02, Ingreso: 20210208: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 32006--
+
+Subida:2021-02-19 14:40:34, Ingreso: 20210215: NumOrdenes actualizadas faltantes en SqlServer: 34225->ItemsIbs: SI-- , Sequences estados cambiados a 0 en SqlServer: 34904--
+
+Subida:2021-02-19 14:41:01, Ingreso: 20210218: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 35514--
+
+Subida:2021-02-23 19:21:44, Ingreso: 20210220: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 35874--35932--35998--36000--36001--36002--36003--36004--36005--36006--36009--36011--36012--36013--36014--36015--36016--36017--36018--
+
+Subida:2021-02-23 19:27:38, Ingreso: 20210221: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 36019--36020--36059--
+
+Subida:2021-02-23 19:38:43, Ingreso: 20210222: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 36601--36602--36603--36604--36605--36606--36607--36608--36609--36610--36611--36612--36613--36615--36616--36617--36618--36619--36620--36621--36625--36626--36627--36628--36629--36630--36631--36632--36633--36634--36635--36636--36637--36638--36639--36640--36641--36642--36643--36644--36646--36649--36650--36651--36652--36656--
+
+Subida:2021-03-01 14:51:28, Ingreso: 20210226: NumOrdenes actualizadas faltantes en SqlServer:  , Sequences estados cambiados a 0 en SqlServer: 

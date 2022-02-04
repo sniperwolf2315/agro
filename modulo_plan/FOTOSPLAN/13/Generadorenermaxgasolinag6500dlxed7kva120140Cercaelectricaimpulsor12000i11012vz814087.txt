@@ -1,0 +1,3 @@
+Generador enermax gasolina g6500dlxe-d 7kva120/140 + Cerca eléctrica impulsor 12000i 110/12v z814087. 
+_Generador: motor 5500W, Potencia 7KVA / 5.5 KW, tipo de trabajo Liviano, tanque 22 Litros, alimentación gasolina, voltaje 120V. Cerca electrica: capacidad máxima potencia:12.0 Joules, capacidad máxima km 120 km, capacidad max ha 420 ha, fuente de energía 110-12V.
+_P

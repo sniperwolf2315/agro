@@ -1,0 +1,8 @@
+@font-face{
+    font-family: MyriadProBold;
+    src:url(MyriadProBold.ttf);
+}
+
+.etiqueta1 {
+    font-family: 'MyriadProBold';
+}

@@ -1,0 +1,120 @@
+.check {
+    width:50px;
+    height:50px;
+}
+.lista {
+    width: 90px;
+    font-size: 2em;
+}
+.ventana {
+    background-color: whitesmoke;
+    width: 90%;
+    padding: 5px;
+    font-size: 2.2em;
+}
+.e1 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 2.2em;
+}
+.texto1 {
+    width: 30%;
+    font-size: 2em;
+}
+.texto2 {
+    width: 90%;
+    font-size: 2em;
+}
+.texto3 {
+    width: 20%;
+    font-size: 2em;
+    }
+.texto4 {
+    width: 7%;
+    font-size: 2em;
+    }
+.boton1 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  70%;
+    height: 2em;
+    font-size: 2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton2 {
+   background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  8%;
+    height: 2em;
+    font-size: 2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton3 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  20%;
+    height: 2em;
+    font-size: 2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton3alto {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  6em;
+    height: 2em;
+    font-size: 1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton4 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  30%;
+    height: 2em;
+    font-size: 2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton5 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  8em;
+    height: 2em;
+    font-size: 1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.marco {
+    width: 98%;
+    padding: 10px;
+}
+.tabla {
+    width: 60%;
+    background-color: #fff8e7;
+}
+.area {
+    width: 50%;
+    font-size: 2.5em;
+}

@@ -1,0 +1,3 @@
+Generador enermax gasolina g6500dlxe-d 7kva120/140
+_Motor 5500W, Potencia 7KVA / 5.5 KW, tipo de trabajo Liviano, tanque 22 Litros, alimentación gasolina, voltaje 120V.
+_P
