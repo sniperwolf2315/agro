@@ -1,0 +1,162 @@
+
+select
+	cc.id,
+	cc.name,
+	f.type,
+	f.number as numero_factura,
+	rp.ref,
+	cc.name as numpqr,
+	concat(concat(rp.ref, ' '), concat(concat(concat(rp.primer_nombre, ' '), concat(rp.primer_apellido, ' ')), concat(rp.segundo_apellido, ' '))) as emp_cliente_reclamo,
+	concat(concat(rp.name, ' '), cc.name) as pqr,
+	concat(concat('http://192.168.6.13:8003/web?debug=#id=', cc.id), '&view_type=form&model=crm.claim') as url,
+	concat(concat('http://agrocampo.avancyserp.com/web?debug=#id=', cc.id), '&view_type=form&model=crm.claim') as url2,
+	case
+		when cc.active = true then 'Active'
+		else 'No Activa'
+	end as status,
+	case
+		when cs.name = 'Fase 1' then 'PQR RECIBIDA'
+		else cs.name
+	end as estado_actual,
+	concat(concat(concat(rp.ref, ' '), concat(concat(concat(rp.primer_nombre, ' '), concat(rp.primer_apellido, ' ')), concat(rp.segundo_apellido, ' '))), rp.email) as asignadoa_responsable,
+	cc.date fecha_inicio,
+	cc.date_deadline as fecha_limite,
+	concat(concat(rp.ref, ' '), concat(concat(concat(rp.primer_nombre, ' '), concat(rp.primer_apellido, ' ')), concat(rp.segundo_apellido, ' '))) as next_respnsable_problema,
+	concat(concat(rp.ref, ' '), rp.email) as mail_asignado_to,
+	concat(concat(rp.ref, ' '), concat(concat(concat(rp.primer_nombre, ' '), concat(rp.primer_apellido, ' ')), concat(rp.segundo_apellido, ' '))) as responsable1,
+	concat(concat(rp.ref, ' '), concat(concat(concat(rp.primer_nombre, ' '), concat(rp.primer_apellido, ' ')), concat(rp.segundo_apellido, ' '))) as responsable_problema2,
+	cc.description as descripcion_pqr,
+	ct.name as causa_reclamo,
+	'' as costo_flete_reposicion,
+	ru.login as cod_vendedor,
+	rp.name as nom_vendedor,
+	cty.name as destino_reposicion,
+	cc.write_date as fecha_cerrado,
+	'' as funcionario_sancionado,
+	'' as guia,
+	'' as pago_transportador,
+	trim(split_part(qws.name, '-', 1)) as codpregunta,
+	qws.name as pregunta,
+	aws.name as respuesta,
+	'' as laboratorio,
+	f.number as numero_nota,
+	f.origin as numero_orden_salida,
+	'' as responsable,
+	'' as sancion,
+	ty.type_action as tipo_solucion,
+	'' as tipo_nota_credito,
+	'' as total_sancion,
+	'' as transportadora,
+	'' as valor_nota_credito,
+	cc.action_next as proxima_accion
+from 
+	crm_claim cc
+left join res_users ru on
+	cc.partner_id = ru.partner_id
+left join res_company rc on
+	cc.company_id = rc.id
+left join res_partner rp on
+	rp.id = cc.partner_id
+left join crm_claim_profiling_rel rcl on
+	rcl.claim = cc.id
+left join crm_profiling_answer aws on
+	rcl.answers = aws.id
+left join crm_profiling_question qws on
+	qws.id = aws.question_id
+left join crm_claim_stage cs on
+	cs.id = cc.stage_id
+left join type_action_crm ty on
+	ty.id = cc.type_action_id
+left join crm_claim_type ct on
+	ct.id = cc.type_id
+left join crm_case_section sv on
+	cc.section_id = sv.id
+left join res_city cty on
+	rp.city_id = cty.id
+left join account_invoice f on
+	cc.factura_id = f.id
+where
+	left(f.type, 3)= 'out'
+	
+	and (rp.name in ('ADRIANA ANGULO', 'AGROCENTRO EL CORRAL SAS ZOMAC', 'AGROINSUMOS SAN MIGUEL SAS', 'AGROMELGAR S.A.S', 'AGROVET. LAS LLANERITAS S.A.S.', 'ANGELA POVEDA', 'BURBANO MONTILLA EDUARDO ENRIQ', 'CAMILA DELGADO', 'CASA AGROPECUARIA CRISOL LTDA', 'CESAR ANDREY HERNANDEZ GOMEZ', 'CORTES MAHECHA MYRIAM', 'DIR-ENVIO2-AGROQUIMICOS ORIENTE Y CIA LTD', 'DIR-ENVIO73-AGROQUIMICOS ORIENTE S.A.S.', 'DUITAMA MARIA DE JESUS', 'GINA MAYERLY RAMIREZ HERNANDEZ', 'GUERRERO RODRIGUEZ ELSA NOHORA', 'HINCAPIE HOYOS ALBERTO LUIS', 'INGRID YESSENIA CORREA HEREDIA ', 'JAIR GARCIA', 'JAVIER RODRIGUEZ', 'LEMUS MELISA', 'MACIAS TAMAYO HECTOR ARIEL', 'MARTINEZ HINESTROZ YAKELINE', 'ORTEGA NARVAEZ FREDY', 'PEREZ ROJAS JAIR FERNANDO', 'PUENTES MORA NESTOR IVAN', 'ROMERO RUBIANO LEIDY JHOANA', 'ROSALBINA JIMENEZ SERNA ', 'SANCHEZ CARVAJAL EMERSON', 'SOTO ARBOLEDA JHON FREDY', 'TAVARES ESCALLON CARMEN ANDREA', 'VALDERRAMA PATRON MONICA EMELI', 'VASQUEZ PADILLA CESAR EDUARDO', 'VASQUEZ ROJO YULY MARICELA') )
+	
+	and (case
+		when left(f.number, 4)= 'FEPO' then '008'
+		when left(f.number, 4)= 'FEAL' then '005'
+		when left(f.number, 2) in ('FD', '01') then '008'
+		else '005'
+	end) = '008'
+	
+order by
+	cc.name asc
+
+
+
+/*
+
+where
+	left(f.type, 3)= 'out'
+	-- = sin este filtro 64 con 39
+	and (rp.name in ('ADRIANA ANGULO', 'AGROCENTRO EL CORRAL SAS ZOMAC', 'AGROINSUMOS SAN MIGUEL SAS', 'AGROMELGAR S.A.S', 'AGROVET. LAS LLANERITAS S.A.S.', 'ANGELA POVEDA', 'BURBANO MONTILLA EDUARDO ENRIQ', 'CAMILA DELGADO', 'CASA AGROPECUARIA CRISOL LTDA', 'CESAR ANDREY HERNANDEZ GOMEZ', 'CORTES MAHECHA MYRIAM', 'DIR-ENVIO2-AGROQUIMICOS ORIENTE Y CIA LTD', 'DIR-ENVIO73-AGROQUIMICOS ORIENTE S.A.S.', 'DUITAMA MARIA DE JESUS', 'GINA MAYERLY RAMIREZ HERNANDEZ', 'GUERRERO RODRIGUEZ ELSA NOHORA', 'HINCAPIE HOYOS ALBERTO LUIS', 'INGRID YESSENIA CORREA HEREDIA ', 'JAIR GARCIA', 'JAVIER RODRIGUEZ', 'LEMUS MELISA', 'MACIAS TAMAYO HECTOR ARIEL', 'MARTINEZ HINESTROZ YAKELINE', 'ORTEGA NARVAEZ FREDY', 'PEREZ ROJAS JAIR FERNANDO', 'PUENTES MORA NESTOR IVAN', 'ROMERO RUBIANO LEIDY JHOANA', 'ROSALBINA JIMENEZ SERNA ', 'SANCHEZ CARVAJAL EMERSON', 'SOTO ARBOLEDA JHON FREDY', 'TAVARES ESCALLON CARMEN ANDREA', 'VALDERRAMA PATRON MONICA EMELI', 'VASQUEZ PADILLA CESAR EDUARDO', 'VASQUEZ ROJO YULY MARICELA') )
+	-- 36
+	and (case
+		when left(f.number, 4)= 'FEPO' then '008'
+		when left(f.number, 4)= 'FEAL' then '005'
+		when left(f.number, 2) in ('FD', '01') then '008'
+		else '005'
+	end) = '008'
+	--end)= '008'
+	-- 3con este filtro = 4
+order by
+	cc.name asc
+
+
+
+*/
+	
+/*#####################################################################################################################################################################################*/
+
+/*
+select  company_id,responsible_next_action, partner_id,stage_id,type_id,type_action_id,section_id,    from crm_claim c ;
+select id,* from res_users
+select * from res_company
+select * from res_partner
+select * from res_partner
+select * from crm_claim_profiling_rel rcl
+select * from crm_profiling_answer aws where id = 59788
+select * from crm_profiling_question qws where id = 116
+select  * from crm_claim_stage cs
+select * from type_action_crm ty 
+select * from crm_claim_type ct
+select * from crm_case_section sv 
+select * from res_city cty
+select type,* from account_invoice
+*
+**/
+
+
+
+/*
+select
+distinct 
+rp.id,
+rp.name
+--count(rp.id)
+from crm_claim cc 
+inner join res_partner rp on rp.id = cc.partner_id  
+--where rp.id =1317
+order by rp.name
+*/
+
+/*
+select * from res_partner limit 5
+select  from res_partner  where id = 120719 ;
+select partner_id, * from crm_claim where partner_id = 120719;
+select * from crm_claim where partner_id='1317';
+*/
+
+
+
+
+
+
