@@ -1,1 +1,1 @@
-<?php echo 'feat php 3';  ?>
+<?php $varuable = 0; echo 'feat php 3';  ?>
