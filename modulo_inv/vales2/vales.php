@@ -1,5 +1,6 @@
 <? session_start();
-
+/*mvariables de conexion*/
+$sesionadmin = false;
 $autorizados = array('OYUELAL','PEREZD','NINOM');
 
 if( in_array( $_SESSION[usuARio], $autorizados) ){
@@ -15,7 +16,15 @@ if($_SESSION['emp'] != $_POST['empresa']){
 	}
 
 include("../user_con.php");
-$_SESSION[usuARio]='LOPEZJ';
+
+
+if ( $sesionadmin === true){
+  $_SESSION[usuARio]='VILLALOBOS';
+}else {
+  $_SESSION[usuARio]='LOPEZJ';
+}
+
+
 $TMP = "_tmp";
 $tabla='rh_vale_vales';
 if(empty($_POST['molonom'])){
@@ -128,7 +137,7 @@ header, footer, nav, aside {
     if($_POST['molonom'] ==''){
       $_POST['molonom'] =  'MOLECULA';
       }
-    //realiza la validació si es molecula o nomina
+    //realiza la validaciï¿½ si es molecula o nomina
     function cambiar_tipo(){
         if($_POST['molonom'] =='NOMINA'){
           $lineColor = "border-color:blue;";

@@ -34,7 +34,6 @@ if($emP == "DeNtR" ){
     if(  $_SESSION["usuARio"] == 'BARONF'
   		OR $_SESSION["usuARio"] == 'SILVAJ'
   		OR $_SESSION["usuARio"] == 'TORRESC'
-  		OR $_SESSION["usuARio"] == 'OYUELAL'
   		OR $_SESSION["usuARio"] == 'SILVAJ'
   		OR $_SESSION["usuARio"] == 'MORANTESM'
   		OR $_SESSION["usuARio"] == 'SIERRAJ'
@@ -42,10 +41,9 @@ if($emP == "DeNtR" ){
   		OR $_SESSION["usuARio"] == 'SUAREZM'
   		OR $_SESSION["usuARio"] == 'RODRIGUEZA'
   		OR $_SESSION["usuARio"] == 'IBANEZV'
-  		OR $_SESSION["usuARio"] == 'NIETOJ'
+  		OR $_SESSION["usuARio"] == 'GOMEZD'
   		OR $_SESSION["usuARio"] == 'RODRIGUEZC'
 		OR $_SESSION["usuARio"] == 'PEREZD'
-		OR $_SESSION["usuARio"] == 'LOPEZS'
 		OR $_SESSION["usuARio"] == 'SIERRAJ'
 		OR $_SESSION["usuARio"] == 'GERENCIA'
 		OR $_SESSION["usuARio"] == 'ESTADISTIC'
@@ -63,7 +61,15 @@ if($emP == "DeNtR" ){
     header("location:index.php");
     }
     else{
-    echo "<BR>".odbc_errormsg()."<BR><BR><BR><BR><a href='user_conect.php' target='_self'><BR><BR> Click aca para Intentar loguearse de nuevo</a>";	
+    echo odbc_errormsg().'<br>';
+    echo "<BR><BR><BR><BR><BR>
+	<div class="."container-xl "."position-absolute top-50 start-100 translate-middle". "link-secondary".        ">
+		<h2>
+			<a href='user_conect.php' target='_self' class="."link-secondary"."  ><BR><BR> Click aca para Intentar loguearse de nuevo
+			</a>
+		</h2>
+	</div>
+			";	
      die;
     }
 

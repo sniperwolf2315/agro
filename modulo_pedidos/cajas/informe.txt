@@ -9,3 +9,6 @@ En la empresa AGROCAMPO, con el numero de factura 810004602 fue CAMBIADA la cant
 En la empresa PESTAR, con el numero de factura 21001656 fue CAMBIADA la cantidad de cajas por 3, por el Usuario: MONTILLAJ desde la IP: 192.168.6.250, en la fecha: October 7, 2021,
 En la empresa PESTAR, con el numero de factura 21001674 fue CAMBIADA la cantidad de cajas por 2, por el Usuario: MONTILLAJ desde la IP: 192.168.6.250, en la fecha: October 8, 2021,
 En la empresa AGROCAMPO, con el numero de factura 1002024546 fue CAMBIADA la cantidad de cajas por 2, por el Usuario: MONTILLAJ desde la IP: 192.168.6.250, en la fecha: November 10, 2021,
+En la empresa PESTAR, con el numero de factura 21002243 fue CAMBIADA la cantidad de cajas por 10, por el Usuario: GOMEZD desde la IP: 192.168.6.250, en la fecha: February 23, 2022,
+En la empresa PESTAR, con el numero de factura 21002243 fue CAMBIADA la cantidad de cajas por 10, por el Usuario: DRAMIREZ desde la IP: 192.168.6.250, en la fecha: February 23, 2022,
+En la empresa PESTAR, con el numero de factura 81002242 fue CAMBIADA la cantidad de cajas por 3, por el Usuario: MONTILLAJ desde la IP: 192.168.6.250, en la fecha: March 16, 2022,

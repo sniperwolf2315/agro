@@ -7,7 +7,7 @@ require_once('user_conmes.php');
 //base sqlServer produccion
 require_once('conectarbaseprodmes.php');
 
-$areax= array("VENTA EXTERNA","CONCENTRADOS","GATOS","MOSTRADOR","IMPORTADOS","SEMILLAS  Y FERRETERIA","VACUNACION","CANALES DIGITALES","PEQUEÑOS");
+$areax= array("VENTA EXTERNA","CONCENTRADOS","GATOS","MOSTRADOR","IMPORTADOS","SEMILLAS  Y FERRETERIA","VACUNACION","CANALES DIGITALES","PEQUENOS");
 
 $num1=count($areax);
 
@@ -16,6 +16,8 @@ $n=0;
 while($n < $num1){
     $area=$areax[$n];
     $queryv = mssql_query("SELECT * FROM [sqlFacturas].[dbo].[cliVendedor] WHERE SectorLab='$area' AND Activo=1 ORDER BY SectorLab ASC;", $cLink);
+    
+    
     while($row1 = mssql_fetch_array($queryv)){
         $vend = trim($row1['Codigo']);
         $area = trim($row1['SectorLab']);
@@ -24,12 +26,21 @@ while($n < $num1){
         $Venta=0;
         //VENTAS GENERALES
         $queryventas = mssql_query("
-          SELECT Vendedor, SUM(ValorSinIVA) as Venta, sum(Valor) as VentaConIva
-          FROM [sqlFacturas].[dbo].[facDetalleFactura] f
-          join [sqlFacturas].[dbo].[agrPeriodo] p ON f.FechaOrden >=CONVERT(VARCHAR, p.FechaIni) AND FechaOrden <=CONVERT(VARCHAR, p.FechaFin) 
-         WHERE p.Codigo='$periodo' AND f.Vendedor='$vend' --AND f.Call='VANANDELL' AND f.Manejador='VANANDELL'
+          SELECT 
+            Vendedor, 
+            SUM(ValorSinIVA) as Venta,
+             sum(Valor) as VentaConIva
+          FROM 
+            [sqlFacturas].[dbo].[facDetalleFactura] f
+                inner join [sqlFacturas].[dbo].[agrPeriodo] p ON f.FechaOrden >=CONVERT(VARCHAR, p.FechaIni) 
+                AND FechaOrden <=CONVERT(VARCHAR, p.FechaFin) 
+         WHERE 
+            p.Codigo='$periodo' 
+            AND f.Vendedor='$vend' 
          GROUP BY f.Vendedor;");
         //$queryventas = mssql_query("SELECT ValorSinIVA FROM [sqlFacturas].[dbo].[facDetalleFactura] WHERE Vendedor='$vend' AND Call='VANANDELL' AND Manejador='VANANDELL';", $cLink);
+
+
         $num=mssql_num_rows($queryventas);
         if($num > 0){
             if($rowv = mssql_fetch_array($queryventas)){
@@ -79,8 +90,10 @@ while($n < $num1){
                             if($vend!='VEND999' && $area!='CANALES DIGITALES'){
                                 $queryventasLab = mssql_query("
                                 SELECT 
-    								 sum(ValorSinIVA) as Venta, sum(Valor) as VentaConIva
-                                      FROM [sqlFacturas].[dbo].[facDetalleFactura] f
+    								sum(ValorSinIVA) as Venta, 
+                                     sum(Valor) as VentaConIva
+                                FROM 
+                                    [sqlFacturas].[dbo].[facDetalleFactura] f
                                       join [sqlFacturas].[dbo].[agrPeriodo] p ON f.FechaOrden >=CONVERT(VARCHAR, p.FechaIni) AND FechaOrden <=CONVERT(VARCHAR, p.FechaFin) 
                                     WHERE p.Codigo='$periodo' 
                                      --AND CALL IN('VEND999')

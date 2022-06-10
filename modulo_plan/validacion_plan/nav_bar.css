@@ -1,0 +1,24 @@
+.nav_li{
+    display: inline-block;
+    background: aquamarine;
+    color: black;
+    padding: 10px 30px;
+    text-decoration:none ;
+}
+.nav_li:hover{
+    background:royalblue;
+}
+nav{
+    background: cadetblue;
+    padding: auto;
+}
+.tbl_tabla{
+    background-color: rgb(218, 214, 214);
+    width: auto;
+    height: auto;
+    display:ruby-text-container;
+    text-align:block;
+    border-radius: 5px;
+    font-size: 5px;
+    color: black;
+}

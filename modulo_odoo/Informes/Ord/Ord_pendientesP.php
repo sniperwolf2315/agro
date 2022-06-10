@@ -109,7 +109,7 @@ $query6 = "select rp.ref as proveedor, rp.name from purchase_order as po
                     left join res_partner as rp on po.partner_id=rp.id
                     group by rp.ref, rp.name;";
                     
-$r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Esta visualizando el informe: ".$tipo."</p>";
+$r=$r."<h5><strong> <p style=\"text-align: center;\" class=\"z-depth-1\">Esta visualizando el informe: ".$tipo."</p> </strong> </h5>";
 $r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ordenes en Estado Pendiente. Compras Pendientes Por Entregar a Corte: ".$fechaActual."</p>";//Fecha Inicio: ".$feini." - hasta: ".$fefin.".
 
 //echo "dias: {$dia} <br>"."Fecha inicial: ".$feini."<br>"."fecha Fin: ".$fefin;

@@ -78,7 +78,7 @@ while($numCat<=13){
           border-radius: 5px 5px 5px 5px;
         }
         </style>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <script src="js/jquery-1.9.1.min.js"></script>
         <link href="css/estilos.css" rel="stylesheet" type="text/css" />
         <!--<link href="css/fuentes.css" rel="stylesheet" type="text/css" />-->
@@ -1770,14 +1770,14 @@ while($numCat<=13){
             }
 
             </script>
-            <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+            <meta charset="utf-8"/>
     </head>
     <body style="background-color: #E4EAC0;">
        <?php
-      // echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra CERRADO. Gracias por su visita!. Los esperamos pronto. </STRONG></p></center>";
-       //echo "<br /><br /><center><a href='https://www.agrocampo.com.co/'><img src='images/logoAG.png'></a></center>";  
-       //exit();
-       //#A7D43D
+      echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra CERRADO. Gracias por su visita!. Los esperamos pronto. </STRONG></p></center>";
+       echo "<br /><br /><center><a href='https://www.agrocampo.com.co/'><img src='images/logoAG.png'></a></center>";  
+       exit();
+       #A7D43D
        ?>
         <div class="centrarancho">
              <div id="wrapperHeader">
@@ -1798,12 +1798,12 @@ while($numCat<=13){
                   <?
                   }
                   ?>
-                 </div>
+                 </div> 
                  <!--<div id="header2" style="text-align: center;">
                   <img src="images/Registro.png" alt="logo" width="8%;" />
                      <label id="nplan" style="font-size: 18pt; font-weight: bold; font-family: ITC Avant Garde Gothic;font-style: italic; color: #ffffff;">REGISTRO PLAN A&Ntilde;O 2020</label><div ></div><br />
                      <label style="font-size: 11pt; font-weight: bold;font-family: ITC Avant Garde Gothic;font-style: italic;color: #ffffff;">INGRESE N&Uacute;MERO DE C&Eacute;DULA o NIT REGISTRADO CON AGROCAMPO Y LUEGO CLIC EN VALIDAR</label>
-                 </div>-->
+                 </div>
             </div>
             &nbsp;
            
@@ -2003,7 +2003,7 @@ while($numCat<=13){
                     <li><label class="parrafo">La imagen no representa el producto final.</label></li> 
                     <li><label class="parrafo">No incluye tr&aacute;mite de visas en los destinos que lo requieran.</label></li>
                     <li><label class="parrafo">Los viajes son para el titular de la cuenta con Agrocampo y son intransferibles.</label></li> 
-                    <li><label class="parrafo">Los viajes son redimibles &uacute;nicamente en temporada baja y durante el 2022. No incluye puentes ni festivos. La fecha debe ser acordada con m&iacute;nimo 3 meses de anticipaci&oacute;n, la cual no debe ser cambiada debido a los altos costos que implica.</label></li>
+                    <li><label class="parrafo">Los viajes son redimibles &uacute;nicamente en temporada baja y durante el 2023. No incluye puentes ni festivos. La fecha debe ser acordada con m&iacute;nimo 3 meses de anticipaci&oacute;n, la cual no debe ser cambiada debido a los altos costos que implica.</label></li>
                     <li><label class="parrafo">Se le enviara por correo electr&oacute;nico copia de este acuerdo como soporte del PLAN AÑO 2022, por favor impr&iacute;mala y cons&eacute;rvela.</label></li>
                     <br />CONDICIONES NOTA CR&Eacute;DITO:<br />
                     </ol>

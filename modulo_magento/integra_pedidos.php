@@ -1,25 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Integra Pedidos </title>
+</head>
+<body>
+  
+
 <? 
-//$prueba ='TMP';
-
-if($prueba =='TMP'){echo "<font size='20' color='red'>PRUEBAS HABILITADO</font><br>br>"; }
-// MySQL local
-$localhostL 	= 	'localhost'	; 	$userA 		= 	'sistemas'	;
-$claveO		=	'sistemasqgro'; 	$base_datosL	=	'agrobase'	;
-$mysqliL = new mysqli($localhostL,$userA,$claveO,$base_datosL);
-if (mysqli_connect_errno())
-  { echo "Failed to connect to MySQL Local: " . mysqli_connect_error(); }
-
-//MySQL Magento
+include('../general_funciones.php');
+// $prueba ='TMP';
+/* conexion my sql de usuario standard  \\/MYSQL/*/
+if($prueba =='TMP'){
+    echo "<font size='20' color='red'>PRUEBAS HABILITADO</font><br>br>"; 
+}
 
 /* 
-//magento 1
+            //magento 1
 $localhostL 	= 	'67.225.141.1'	; 	$userA 		= 	'agrocom'	;
 $claveO		=	'temporal2020lino*'; 	$base_datosL	=	'agrocom_evacom'	;
 $mysqliM = new mysqli($localhostL,$userA,$claveO,$base_datosL);
-if (mysqli_connect_errno())
+if (mysqli_connect_error())
   { echo "Failed to connect to MySQL MAgento: " . mysqli_connect_error(); }
 
-//magento 2 1ra ver
+            //magento 2 1ra ver
 $localhostL 	= 	'67.225.141.97'	; 	
 $userA 		= 	'agrocom'	;//agroeva
 $claveO		=	'M4scot4$-F1nalSv2018=!'; 	
@@ -27,16 +34,30 @@ $base_datosL	=	'agrocom_evacom'	;
 $mysqliM = new mysqli($localhostL,$userA,$claveO,$base_datosL);
 */
 
+// MySQL local
+$localhostL 	= 'localhost'	; 	
+$userA 		    = 'sistemas'	;
+$claveO		    =	'sistemasqgro'; 	
+$base_datosL	=	'agrobase'	;
+$mysqliL      = new mysqli($localhostL,$userA,$claveO,$base_datosL);
+/* FIXME: se repara el conector */
+if (mysqli_connect_error())
+  { echo "Failed to connect to MySQL Local: " . mysqli_connect_error(); }
+  else{
+    // echo 'conectado a localhost';
+    echo '';
+  }
+
 //magento 2 2da ver
-$localhostL 	= 	'3.233.60.4'; 	
-$userA 		= 	'nzwcsjbshb';   //agroeva
-$claveO		=	'k4SCnVuThJ'; 	
+$localhostL 	= '3.233.60.4'; 	
+$userA 		    = 'nzwcsjbshb';   //agroeva
+$claveO		    =	'k4SCnVuThJ'; 	
 $base_datosL	=	'nzwcsjbshb';
-$mysqliM = new mysqli($localhostL,$userA,$claveO,$base_datosL);
+$mysqliM      = new mysqli($localhostL,$userA,$claveO,$base_datosL);
 
 //mmsql AgroC
-    $cLink = mssql_connect('192.168.6.15', 'sa', '%19Sis60Tem@s17') or die(mssql_get_last_message()); //AZURE10.10.0.5
-    mssql_select_db('SqlFacturas',$cLink);
+$cLink = mssql_connect('192.168.6.15', 'sa', '%19Sis60Tem@s17') or die(mssql_get_last_message()); //AZURE10.10.0.5
+mssql_select_db('SqlFacturas',$cLink);
 
 //db2 IBS
 $db2conp = odbc_connect('IBM-AGROCAMPO-P','ODBC','ODBC');
@@ -46,53 +67,56 @@ $db2con = odbc_connect('IBM-AGROCAMPO-P','odbc','odbc');
 $hoy = date("Y-m-d");
 $hoy_1sem = date("Y-m-d", strtotime("$hoy - 1 week"));
 
+// echo remove_characters('pruebas Â´pÂ´p < as> asdasdÃ³');
 
 //if($hoy >= '2020-10-13'){ $hoy_1sem = '2021-07-15'; }
 
 $hini = date("Y-m-d H:i:s");
 // MAGENTO SACA DATOS DE ENCABEZADO DE ORDEN DE $HOY
 $sql ="SELECT 
-     A.entity_id AS IDPedidoPagina
-    , if(customer_taxvat IS NULL,vat_id,customer_taxvat) AS IDCliente
-    , CONCAT(customer_firstname,' ',customer_lastname) AS NombreCliente
-    , '0' AS Estado
-    , street AS Direccion
-    , fax AS Telefono
-    , telephone AS Celular
-    , IF(postcode ='011001000','11001000',postcode) AS CodigoMunicipalidad
-    , customer_email AS Email
-    , '' AS IDordenAgro
-    , '' AS IDestadoAgro
-    , '' AS IDDescEstado
-    , '' AS IDFacturaAgro
-    , grand_total AS ValorOrden
-    , shipping_amount AS ValorFlete
-    , IF(shipping_method = 'amtable_amtable13','G03',IF(shipping_method = 'amstrates_amstrates14','G04',IF(shipping_method = 'amstrates_amstrates16','G04-4',''))) AS vBarrio
-    , increment_id AS Sequence
-    , A.created_at AS Fecha
-    , '0000-00-00' AS FechaIngreso 
-    , '0000-00-00' AS FechaFacturacion
-    , if(A.status = 'ondelivery','contra',substr(C.comment,1,8)) AS Pago
-    , base_discount_amount*-1 AS Descuento
-    , coupon_code AS TipoDesc
-    , CONCAT(if(coupon_code IS NULL,'',CONCAT('Dto ',coupon_code,': $',CAST(base_discount_amount AS SIGNED),'\r')),IFNULL((SELECT concat('Cliente escribe: ',comment) FROM agro_sales_order_status_history WHERE parent_id = A.entity_id AND status IS NULL AND is_customer_notified = 1 AND is_visible_on_front = 1),'' )) AS Notas
-    , B.city as Ciudad
-    , B.region as Departamento
-    , A.shipping_description as tipoenvio
-    FROM agro_sales_order A 
-    inner join
-    agro_sales_order_address B  on A.shipping_address_id = B.entity_id
-    LEFT JOIN 
-    agro_sales_order_status_history C ON C.parent_id = A.entity_id AND C.status='processing'
-    WHERE 
-    A.created_at >='$hoy_1sem'
-    AND
-    ( (A.status = 'processing' AND substr(C.comment,1,8)= 'APPROVED' )
-      OR
-      A.status = 'ondelivery' 
-    )
-    
-    "; 
+A.entity_id AS IDPedidoPagina
+, if(customer_taxvat IS NULL,vat_id,customer_taxvat) AS IDCliente
+, CONCAT(customer_firstname,' ',customer_lastname) AS NombreCliente
+, '0' AS Estado
+, street AS Direccion
+, fax AS Telefono
+, telephone AS Celular
+, IF(postcode ='011001000','11001000',postcode) AS CodigoMunicipalidad
+, customer_email AS Email
+, '' AS IDordenAgro
+, '' AS IDestadoAgro
+, '' AS IDDescEstado
+, '' AS IDFacturaAgro
+, grand_total AS ValorOrden
+, shipping_amount AS ValorFlete
+, IF(shipping_method = 'amtable_amtable13','G03',IF(shipping_method = 'amstrates_amstrates14','G04',IF(shipping_method = 'amstrates_amstrates16','G04-4',''))) AS vBarrio
+, A.increment_id AS Sequence
+, A.created_at AS Fecha
+, '0000-00-00' AS FechaIngreso 
+, '0000-00-00' AS FechaFacturacion
+, if(A.status = 'ondelivery','contra',substr(C.comment,1,8)) AS Pago
+, base_discount_amount*-1 AS Descuento
+, coupon_code AS TipoDesc
+, CONCAT(if(coupon_code IS NULL,'',CONCAT('Dto ',coupon_code,': $',CAST(base_discount_amount AS SIGNED),'\r')),IFNULL((SELECT concat('Cliente escribe: ',comment) FROM agro_sales_order_status_history WHERE parent_id = A.entity_id AND status IS NULL AND is_customer_notified = 1 AND is_visible_on_front = 1),'' )) AS Notas
+, B.city as Ciudad
+, B.region as Departamento
+, A.shipping_description as tipoenvio
+, ifnull(ent.group_id, 0) as group_id
+FROM agro_sales_order A 
+inner join
+agro_sales_order_address B  on A.shipping_address_id = B.entity_id
+LEFT JOIN 
+agro_sales_order_status_history C ON C.parent_id = A.entity_id AND C.status='processing'
+LEFT JOIN  agro_customer_entity ent ON ent.taxvat = A.customer_taxvat
+WHERE 
+A.created_at >='$hoy_1sem'
+AND
+( (A.status = 'processing' AND substr(C.comment,1,8)= 'APPROVED' )
+ OR
+ A.status = 'ondelivery' 
+)
+
+"; 
  //   echo "$sql";die; 
 $comaID ='';
 $result = mysqli_query($mysqliM, $sql);
@@ -202,43 +226,45 @@ while($row = mysqli_fetch_row($result)){
       $codigoMunicMg = trim($row[5]);
       
       //Reemplazamos tildes la A y a
-		$ciudadaBuscar = str_replace(
-		array('Á', 'À', 'Â', 'Ä', 'á', 'à', 'ä', 'â', 'ª'),
-		array('A', 'A', 'A', 'A', 'a', 'a', 'a', 'a', 'a'),
-		$ciudadaBuscar);
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('A', 'A', 'A', 'A', 'a', 'a', 'a', 'a', 'a'),
+		// $ciudadaBuscar);
  
-		//Reemplazamos la E y e
-		$ciudadaBuscar = str_replace(
-		array('É', 'È', 'Ê', 'Ë', 'é', 'è', 'ë', 'ê'),
-		array('E', 'E', 'E', 'E', 'e', 'e', 'e', 'e'),
-		$ciudadaBuscar);
+		// //Reemplazamos la E y e
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('E', 'E', 'E', 'E', 'e', 'e', 'e', 'e'),
+		// $ciudadaBuscar);
  
-		//Reemplazamos la I y i
-		$ciudadaBuscar = str_replace(
-		array('Í', 'Ì', 'Ï', 'Î', 'í', 'ì', 'ï', 'î'),
-		array('I', 'I', 'I', 'I', 'i', 'i', 'i', 'i'),
-		$ciudadaBuscar);
+		// //Reemplazamos la I y i
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('I', 'I', 'I', 'I', 'i', 'i', 'i', 'i'),
+		// $ciudadaBuscar);
  
-		//Reemplazamos la O y o
-		$ciudadaBuscar = str_replace(
-		array('Ó', 'Ò', 'Ö', 'Ô', 'ó', 'ò', 'ö', 'ô'),
-		array('O', 'O', 'O', 'O', 'o', 'o', 'o', 'o'),
-		$ciudadaBuscar);
+		// //Reemplazamos la O y o
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('O', 'O', 'O', 'O', 'o', 'o', 'o', 'o'),
+		// $ciudadaBuscar);
  
-		//Reemplazamos la U y u
-		$ciudadaBuscar = str_replace(
-		array('Ú', 'Ù', 'Û', 'Ü', 'ú', 'ù', 'ü', 'û'),
-		array('U', 'U', 'U', 'U', 'u', 'u', 'u', 'u'),
-		$ciudadaBuscar);
+		// //Reemplazamos la U y u
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('U', 'U', 'U', 'U', 'u', 'u', 'u', 'u'),
+		// $ciudadaBuscar);
         
-        //Reemplazamos la N, n, C y c
-		$ciudadaBuscar = str_replace(
-		array('Ñ', 'ñ', 'Ç', 'ç'),
-		array('N', 'n', 'C', 'c'),
-		$ciudadaBuscar);
-      
-      $ciudad=$ciudadaBuscar;
-      
+    //     //Reemplazamos la N, n, C y c
+		// $ciudadaBuscar = str_replace(
+		// array('ï¿½', 'ï¿½', 'ï¿½', 'ï¿½'),
+		// array('N', 'n', 'C', 'c'),
+		// $ciudadaBuscar);
+
+    $ciudadaBuscar = strval($ciudadaBuscar);
+    $ciudad= remove_characters( $ciudadaBuscar );
+      // =$ciudadaBuscar;
+
       //***AQUI CONSULTA TABLA agrCodigoPostal EN sqlSever para traer codigos postales o insertarlos***
       $copPostLupap="";
       $direClientesql=utf8_decode(substr($direccion,0,20)); //agregado
@@ -332,7 +358,7 @@ while($row = mysqli_fetch_row($result)){
           $ff++;
       }else{
           $idPedidoP[$ff]=$idPed;
-          if($ciudad == 'Bogota' || $ciudad == 'Bogotá' || $ciudad == 'bogota'){
+          if($ciudad == 'Bogota' || $ciudad == 'Bogotï¿½' || $ciudad == 'bogota'){
             $codLupapP[$ff]='11001000'; 
           }else{
             $codLupapP[$ff]='';
@@ -380,7 +406,7 @@ $direabuscar="";  //nuevo
 $codPostLupap=""; //nuevo
 $sql = "SELECT 
            IDPedidoPagina,IDCliente,NombreCliente,Estado,Direccion,Telefono,Celular,CodigoMunicipalidad,Email,
-           IDordenAgro,IDestadoAgro,IDDescEstado,IDFacturaAgro,ValorOrden,ValorFlete,vBarrio,Sequence,Fecha,Pago,Notas 
+           IDordenAgro,IDestadoAgro,IDDescEstado,IDFacturaAgro,ValorOrden,ValorFlete,vBarrio,Sequence,Fecha,Pago,Descuento,Notas, group_id  
         FROM magento_orden ";
 $result = $result = mysqli_query($mysqliL, $sql);
 while($row = mysqli_fetch_assoc($result)){
@@ -516,4 +542,5 @@ mysqli_close();
 odbc_close();
 
 ?>
-  
+ </body>
+</html>

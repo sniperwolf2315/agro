@@ -3,19 +3,34 @@ include_once 'usercon_odoo.php';
 Conexion::abrirConexion();
 $Conn = Conexion::obtenerConexion();
 
-$anio=trim($_GET['a']);
-$mes=trim($_GET['m']);
+$anio      = trim($_GET['a']);
+$mes       = trim($_GET['m']);
+$anio_hasta = trim($_GET['ah']);
+$mes_hasta = trim($_GET['mh']);
+$dia_desde = trim($_GET['d']);
+$dia_hasta = trim($_GET['dh']);
+$tipo_consulta = trim($_GET['tc']);
+
 
 //fecha inicio fecha din de la consulta x mes
-$dia = cal_days_in_month(CAL_GREGORIAN, $mes, $anio); // 31
-$feini=$anio."-".$mes."-01 00:00:00";
-//$feini1=$anio.$mes."01";
-$fefin=$anio."-".$mes."-".$dia." 23:59:59";
-//$fefin1=$anio.$mes.$dia;
 
-        $r=$r."<table style=\"border: 1px solid #000; width:100%; \" class=\"#439049 green darken-1\">";
-        $r=$r."<tr style=\"border-bottom: 1pt solid black; font-size: 0.8em;\">";
-        $r=$r."<td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">No.</td>
+$filtro;
+if ($tipo_consulta === 'normal') {
+    $dia = cal_days_in_month(CAL_GREGORIAN, $mes, $anio); // 31
+    $feini = $anio . "-" . $mes . "-01 00:00:00";
+    $fefin = $anio . "-" . $mes . "-" . $dia . " 23:59:59";
+    $filtro = "and r.date between '" . $feini . "' and '" . $fefin . "'";
+} else if ($tipo_consulta === 'rangos') {
+    $feini = $anio_hasta . "-" . $mes_hasta . "-" . $dia_desde . " 00:00:00";
+    $fefin = $anio_hasta . "-" . $mes_hasta . "-" . $dia_hasta . " 23:59:59";
+    $filtro = "and r.date between '" . $feini . "' and '" . $fefin . "'";
+} else {
+    $filtro = '';
+}
+
+$r = $r . "<table style=\"border: 1px solid #000; width:100%; \" class=\"#439049 green darken-1\">";
+$r = $r . "<tr style=\"border-bottom: 1pt solid black; font-size: 0.8em;\">";
+$r = $r . "<td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">No.</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Orden</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">CP</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Referencia Interna</td>
@@ -27,7 +42,7 @@ $fefin=$anio."-".$mes."-".$dia." 23:59:59";
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Costo</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Fecha</td>
         <td><Strong><a href='Informexls/Informe_Ingreso008.xlsx' class=\"z-depth-1 white-text text-darken-2\">Descargar</a><Strong></td>";
-        /*
+/*
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Nom_Producto</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Grupo</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Recibidos_Devueltos</td>
@@ -44,7 +59,7 @@ $fefin=$anio."-".$mes."-".$dia." 23:59:59";
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Refe_Interna</td>
         <td style=\"font-weight: bold;text-align: left;\" class=\"z-depth-1 white-text text-darken-2\">Estiba</td>
         <td><Strong><a href='Informexls/Informe_Ingreso008.xlsx' class=\"z-depth-1 white-text text-darken-2\">Descargar</a><Strong></td>";*/
-        $r=$r."</tr>";
+$r = $r . "</tr>";
 //echo "dias: {$dia} <br>"."Fecha inicial: ".$feini."<br>"."fecha Fin: ".$fefin;
 
 
@@ -77,71 +92,76 @@ left join stock_quant_package as sqp on spo.result_package_id=sqp.id
 where scr.state='done' and scr.type_reception='provider' and scr.date between '".$feini1."' and '".$fefin1."' and rp.ref not like '8600069284'
   and sw.code='008' and scrl.warehouse_id is not null and scrl.receipt_id is not null and sp.name like '%IN%' 
   and scrl.receipt_id is not null;";*/
-$query1="select 
-r.date as fecha, 
-o.name as name1, 
-r.name as name2, 
-q.name as name3, 
-m.product_qty as cantidad, 
-m.state as estado, 
-p.default_code as cod_int, 
-p.name_template as name, 
-w.code cod_bodega, 
-m.cost as costo 
---m.last_product_qty as canti
-from purchase_order o
-left join purchase_order_line l on o.id=l.id
-left join stock_move m ON o.name=m.origin
-left join stock_control_receipt_line_detail d ON m.id=d.move_id
-left join stock_control_receipt r ON d.receipt_id=r.id
-left join product_product p ON m.product_id=p.id
-left join stock_warehouse w on m.warehouse_id = w.id
-right join stock_picking q ON m.picking_id=q.id
-where m.state='done' and w.code='008' and r.date between '".$feini."' and '".$fefin."';";
-  
-$i=1;
-//echo "Fecha inicial: ".$feini." fecha final: ".$fefin;
-$r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Portos. Fecha Inicio: ".$feini." - hasta: ".$fefin.".</p>";
 
-                $fd=3;
-                // $r="Informexls/Informe_Inventario008.xlsx"
-                $miruta='Informexls/';
-                $nombre_fichero = 'Informe_Ingreso008';
-                $mipath=$miruta.$nombre_fichero.'.xlsx';
-                if(file_exists($miruta)) {
-                    include('Classes/PHPExcel.php');
-                    include('Classes/PHPExcel/Reader/Excel2007.php');
-                    //Crear el objeto Excel: 
-                    $objPHPExcel = new PHPExcel();
-                    $mipath2=$miruta.$nombre_fichero.'.xlsx';
-                    if(file_exists($mipath2)) {
-                        $archivo = $mipath2;
-                        $inputFileType = PHPExcel_IOFactory::identify($archivo);
-                        $objReader = PHPExcel_IOFactory::createReader($inputFileType);
-                        $objPHPExcel = $objReader->load($archivo);                
-                    } else {              
-                        $objPHPExcel->getProperties()->setCreator("Autor: Agrocampo");
-                        $objPHPExcel->getProperties()->setLastModifiedBy("Agrocampo");
-                        $objPHPExcel->getProperties()->setTitle("Informe Agrocampo");
-                        $objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Informe Empresarial");
-                        $objPHPExcel->getProperties()->setDescription("Informe en Office 2007 XLSX");
-                        $objPHPExcel->getProperties()->setKeywords("office 2007 openxml php");
-                        $objPHPExcel->getProperties()->setCategory("Resultado de Informe"); 
-                        
-                        $objWorkSheet = $objPHPExcel->createSheet(0);
-                            
-                            $objWorkSheet->setCellValue('A2', 'No.')
-                                ->setCellValue('B2', 'Orden')
-                                ->setCellValue('C2', 'CP')
-                                ->setCellValue('D2', 'Referencia Interna')
-                                ->setCellValue('E2', 'Cantidad')
-                                ->setCellValue('F2', 'Estado')
-                                ->setCellValue('G2', 'Codigo Interno')
-                                ->setCellValue('H2', 'Nombre')
-                                ->setCellValue('I2', 'cod_Bodega')
-                                ->setCellValue('J2', 'Costo')
-                                ->setCellValue('K2', 'Fecha');
-                                /*
+
+$query1 = "
+select 
+    r.date as fecha, 
+    o.name as name1, 
+    r.name as name2, 
+    q.name as name3, 
+    m.product_qty as cantidad, 
+    m.state as estado, 
+    p.default_code as cod_int, 
+    p.name_template as name, 
+    w.code cod_bodega, 
+    m.cost as costo 
+from purchase_order o
+    left join purchase_order_line l on o.id=l.id
+    left join stock_move m ON o.name=m.origin
+    left join stock_control_receipt_line_detail d ON m.id=d.move_id
+    left join stock_control_receipt r ON d.receipt_id=r.id
+    left join product_product p ON m.product_id=p.id
+    left join stock_warehouse w on m.warehouse_id = w.id
+    right join stock_picking q ON m.picking_id=q.id
+where 
+    m.state='done' 
+    and w.code='008'
+    $filtro
+    ;";
+
+$i = 1;
+$r = $r . "<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Portos. Fecha Inicio: " . $feini . " - hasta: " . $fefin . ".</p>";
+$fd = 3;
+
+// $r="Informexls/Informe_Inventario008.xlsx"
+$miruta = 'Informexls/';
+$nombre_fichero = 'Informe_Ingreso008';
+$mipath = $miruta . $nombre_fichero . '.xlsx';
+if (file_exists($miruta)) {
+    include('Classes/PHPExcel.php');
+    include('Classes/PHPExcel/Reader/Excel2007.php');
+    //Crear el objeto Excel: 
+    $objPHPExcel = new PHPExcel();
+    $mipath2 = $miruta . $nombre_fichero . '.xlsx';
+    if (file_exists($mipath2)) {
+        $archivo = $mipath2;
+        $inputFileType = PHPExcel_IOFactory::identify($archivo);
+        $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+        $objPHPExcel = $objReader->load($archivo);
+    } else {
+        $objPHPExcel->getProperties()->setCreator("Autor: Agrocampo");
+        $objPHPExcel->getProperties()->setLastModifiedBy("Agrocampo");
+        $objPHPExcel->getProperties()->setTitle("Informe Agrocampo");
+        $objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Informe Empresarial");
+        $objPHPExcel->getProperties()->setDescription("Informe en Office 2007 XLSX");
+        $objPHPExcel->getProperties()->setKeywords("office 2007 openxml php");
+        $objPHPExcel->getProperties()->setCategory("Resultado de Informe");
+
+        $objWorkSheet = $objPHPExcel->createSheet(0);
+
+        $objWorkSheet->setCellValue('A2', 'No.')
+            ->setCellValue('B2', 'Orden')
+            ->setCellValue('C2', 'CP')
+            ->setCellValue('D2', 'Referencia Interna')
+            ->setCellValue('E2', 'Cantidad')
+            ->setCellValue('F2', 'Estado')
+            ->setCellValue('G2', 'Codigo Interno')
+            ->setCellValue('H2', 'Nombre')
+            ->setCellValue('I2', 'cod_Bodega')
+            ->setCellValue('J2', 'Costo')
+            ->setCellValue('K2', 'Fecha');
+        /*
                                 ->setCellValue('L2', 'nom_producto')
                                 ->setCellValue('M2', 'grupo')
                                 ->setCellValue('N2', 'recibidos_devueltos')
@@ -157,98 +177,108 @@ $r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Po
                                 ->setCellValue('X2', 'tipo')
                                 ->setCellValue('Y2', 'refe_interna')
                                 ->setCellValue('Z2', 'estiba');*/
-                             
-                            
-                            $objWorkSheet->setTitle("Ingreso Mercancia 008");
-                        }
-                    
-                }
-                //BORRAR DTOS
-                $fil=3;
-                $objPHPExcel->setActiveSheetIndex(0);
-                $totalreg = $objPHPExcel->setActiveSheetIndex(0)->getHighestRow();
-                $totalreg=$totalreg+1;
-                while ($fil <= $totalreg) {
-                    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('C'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('D'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('E'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('F'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('G'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('H'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('I'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('J'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('K'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('L'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('M'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('N'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('O'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('P'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('Q'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('R'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('S'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('T'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('U'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('V'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('W'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('X'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('Y'.$fil, '');
-                    $objPHPExcel->getActiveSheet()->SetCellValue('Z'.$fil, '');
-                    $fil++;
-                }
-                //ANCHOS
-                $objPHPExcel->setActiveSheetIndex(0);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(20);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(35);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(30);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('P')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(35);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('U')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('V')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('W')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('X')->setWidth(10);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('Y')->setWidth(15);
-                    $objPHPExcel->getActiveSheet()->getColumnDimension('Z')->setWidth(15);
-                
-                $objPHPExcel->setActiveSheetIndex(0)
-                                ->setCellValue('A1', "Ingreso Mercancia 008");
-                $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
-            $resultado1= $Conn->prepare($query1);
-            $resultado1->execute();
-            $datos1=$resultado1->fetchAll();
-            foreach($datos1 as $dato1){
-                if(($i%2)==0){
-                        $color="#AED6F1";
-                    }else{
-                        $color="#E8F6F3";
-                    }
-                $d1=$dato1['name1'];
-                $d2=$dato1['name2'];
-                $d3=$dato1['name3'];
-                $d4=$dato1['cantidad'];
-                $d5=$dato1['estado'];
-                $d6=$dato1['cod_int'];
-                $d7=$dato1['name'];
-                $d8=$dato1['cod_bodega'];
-                $d9=$dato1['costo'];
-                $d10=$dato1['fecha'];//canti
-                /*
+
+
+        $objWorkSheet->setTitle("Ingreso Mercancia 008");
+    }
+}
+//BORRAR DTOS
+$fil = 3;
+$objPHPExcel->setActiveSheetIndex(0);
+$totalreg = $objPHPExcel->setActiveSheetIndex(0)->getHighestRow();
+$totalreg = $totalreg + 1;
+while ($fil <= $totalreg) {
+    $objPHPExcel->getActiveSheet()->SetCellValue('A' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('E' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('F' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('G' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('H' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('I' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('J' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('K' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('L' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('M' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('N' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('O' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('P' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('Q' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('R' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('S' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('T' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('U' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('V' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('W' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('X' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('Y' . $fil, '');
+    $objPHPExcel->getActiveSheet()->SetCellValue('Z' . $fil, '');
+    $fil++;
+}
+//ANCHOS
+$objPHPExcel->setActiveSheetIndex(0);
+$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
+$objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(20);
+$objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(35);
+$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(30);
+$objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('P')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(35);
+$objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('U')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('V')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('W')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('X')->setWidth(10);
+$objPHPExcel->getActiveSheet()->getColumnDimension('Y')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('Z')->setWidth(15);
+
+$objPHPExcel->setActiveSheetIndex(0)
+    ->setCellValue('A1', "Ingreso Mercancia 008");
+$objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+
+
+$resultado1 = $Conn->prepare($query1);
+$resultado1->execute();
+$datos1 = $resultado1->fetchAll();
+
+
+if ((count($datos1)) === 0) {
+    echo '¡No hay datos que mostrar para esta consulta!';
+    return;
+}
+
+
+
+foreach ($datos1 as $dato1) {
+    if (($i % 2) == 0) {
+        $color = "#AED6F1";
+    } else {
+        $color = "#E8F6F3";
+    }
+    $d1 = $dato1['name1'];
+    $d2 = $dato1['name2'];
+    $d3 = $dato1['name3'];
+    $d4 = $dato1['cantidad'];
+    $d5 = $dato1['estado'];
+    $d6 = $dato1['cod_int'];
+    $d7 = $dato1['name'];
+    $d8 = $dato1['cod_bodega'];
+    $d9 = $dato1['costo'];
+    $d10 = $dato1['fecha']; //canti
+    /*
                 $d11=$dato1['nom_producto'];
                 $d12=$dato1['grupo'];
                 $d13=$dato1['recibidos_devueltos'];
@@ -264,24 +294,24 @@ $r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Po
                 $d23=$dato1['tipo'];
                 $d24=$dato1['refe_interna'];
                 $d25=$dato1['estiba'];*/
-                
-                                $r=$r."<tr style='background-color: $color;  border: 1px solid rgb(120,120,120); font-size: 1.5em;'>";
-                                $r=$r."<td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$i."</td>
-                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d1."</td>
-                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d2."</td>
-                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d3."</td>
-                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d4."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d5."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d6."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d7."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d8."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d9."</td>
-                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>".$d10."</td>
+
+    $r = $r . "<tr style='background-color: $color;  border: 1px solid rgb(120,120,120); font-size: 1.5em;'>";
+    $r = $r . "<td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $i . "</td>
+                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d1 . "</td>
+                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d2 . "</td>
+                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d3 . "</td>
+                                <td style='width: 19%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d4 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d5 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d6 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d7 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d8 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d9 . "</td>
+                                <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'>" . $d10 . "</td>
                                 <td style='width: 10%; font-size: 0.5em; background-color: azure; border: 1px solid rgb(120,120,120);height: 10px;padding: 0px;'></td>";
-                                $r=$r."</tr>";
-                                //$r=$r . "<td style=\"font-weight: bold;text-align: left;\"><Strong><a href='Informexls/Informe_Inventario008.xlsx'>Descargar</a><Strong></td>";
-                                
-                /*//filas
+    $r = $r . "</tr>";
+    //$r=$r . "<td style=\"font-weight: bold;text-align: left;\"><Strong><a href='Informexls/Informe_Inventario008.xlsx'>Descargar</a><Strong></td>";
+
+    /*//filas
                 $r=$r . "<tr style='background-color: $color; font-size: 0.5em;'>";
                 $r =$r. "<td style='padding: 5px;'>".$i."</td>
                 <td style='padding: 5px;'>".$d1."</td>
@@ -312,22 +342,22 @@ $r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Po
                 <td>&nbsp;</td>";
                 $r=$r . "</tr>";
                 $i++;*/
-                //EXCEL
-                $objPHPExcel->setActiveSheetIndex(0)
-                    ->setCellValue('A'.$fd, $i)            
-                    ->setCellValue('B'.$fd, $d1)
-                    ->setCellValueExplicitByColumnAndRow(2, $fd, $d2, PHPExcel_Cell_DataType::TYPE_STRING)
-                    ->setCellValueExplicitByColumnAndRow(3, $fd, $d3, PHPExcel_Cell_DataType::TYPE_STRING)
-                    ->setCellValue('E'.$fd, $d4)
-                    ->setCellValue('F'.$fd, $d5)
-                    ->setCellValue('G'.$fd, $d6)
-                    ->setCellValueExplicitByColumnAndRow(7, $fd, $d7, PHPExcel_Cell_DataType::TYPE_STRING)
-                    //->setCellValue('H'.$fd, $d7)
-                    ->setCellValueExplicitByColumnAndRow(8, $fd, $d8, PHPExcel_Cell_DataType::TYPE_STRING)
-                    ->setCellValue('J'.$fd, $d9)
-                    ->setCellValueExplicitByColumnAndRow(10, $fd, $d10, PHPExcel_Cell_DataType::TYPE_STRING);
-                    //->setCellValue('K'.$fd, $d10)
-                    /*->setCellValue('L'.$fd, $d11)
+    //EXCEL
+    $objPHPExcel->setActiveSheetIndex(0)
+        ->setCellValue('A' . $fd, $i)
+        ->setCellValue('B' . $fd, $d1)
+        ->setCellValueExplicitByColumnAndRow(2, $fd, $d2, PHPExcel_Cell_DataType::TYPE_STRING)
+        ->setCellValueExplicitByColumnAndRow(3, $fd, $d3, PHPExcel_Cell_DataType::TYPE_STRING)
+        ->setCellValue('E' . $fd, $d4)
+        ->setCellValue('F' . $fd, $d5)
+        ->setCellValue('G' . $fd, $d6)
+        ->setCellValueExplicitByColumnAndRow(7, $fd, $d7, PHPExcel_Cell_DataType::TYPE_STRING)
+        //->setCellValue('H'.$fd, $d7)
+        ->setCellValueExplicitByColumnAndRow(8, $fd, $d8, PHPExcel_Cell_DataType::TYPE_STRING)
+        ->setCellValue('J' . $fd, $d9)
+        ->setCellValueExplicitByColumnAndRow(10, $fd, $d10, PHPExcel_Cell_DataType::TYPE_STRING);
+    //->setCellValue('K'.$fd, $d10)
+    /*->setCellValue('L'.$fd, $d11)
                     ->setCellValue('M'.$fd, $d12)
                     ->setCellValue('N'.$fd, $d13)
                     ->setCellValue('O'.$fd, $d14)
@@ -342,16 +372,15 @@ $r=$r."<p style=\"text-align: center;\" class=\"z-depth-1\">Ingreso Mercancia Po
                     ->setCellValue('X'.$fd, $d23)
                     ->setCellValue('Y'.$fd, $d24)
                     ->setCellValue('Z'.$fd, $d25);*/
-                
-                    $fd++;
-                    $i++;
+
+    $fd++;
+    $i++;
 }
-$r=$r . "</table>";
+$r = $r . "</table>";
 Conexion::cerrarConexion();
 //CREA ARCHIVO************************************************************
-    $objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
-    //Guardar el achivo: 
-    $objWriter->save($mipath2);
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+//Guardar el achivo: 
+$objWriter->save($mipath2);
 echo $r;
 //echo $fecha;
-?>

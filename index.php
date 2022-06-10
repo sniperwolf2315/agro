@@ -32,7 +32,6 @@ echo "<font class='frxs'>".substr($_SESSION[NIVel],0,1)." ".substr($_SESSION[ser
   <div id="ifra724vlrhy" class="abs" style="left:2px; top:15px; width:98%; height:97%; border-style:solid;"><iframe
  name="i-frame1" class="aut abs" src="inicio.php" frameborder="0" style="height:100%; width:100%;">
  <a href="modulo0/pags/inicio.php">modulo0/pags/inicio.php</a></iframe></div>
-  
 </div>
 
 

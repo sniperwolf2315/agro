@@ -44,6 +44,10 @@ if($_SESSION['usuARio'] == 'MORANTESN')
     {
         $Pasa=true;
     }
+    else if($_SESSION['usuARio'] == 'VILLALOBOS')
+    {
+        $Pasa=true;
+    }
 if($Pasa==false)
     {
         $_SESSION['acc']='1';
@@ -99,7 +103,7 @@ include('config.php');
 
 $lineas = array('ALMACEN','PLATAFORMAS DIGITALES','PAGINA WEB','CALL (NO VTA EXT)','ZONAS VENTA EXTERNA','TOTAL','APOYO CALL V.EXT') ;
 //$cols = array('VAR %','ANI_2021','ANI_2020','AGR_2021');
-$cols = array('VAR %','AGR_2021','ANI_2020','ANI_2021');
+$cols = array('VAR %','ANI_2021','AGR_2021','AGR_2022');
 //$cols = array('VAR %','AGR_2020','AGR_2021');
 $hoy = date("Y-m-d");
 if($hoy > $finaliza){
@@ -123,9 +127,9 @@ $sql = "select
            dia AS DIA
           ,diasem AS DIASEM
           ,area AS AREA
-          ,sum(if(evento='AGROMANIA',venta,0)) AS AGR_2021
-          ,sum(if(evento='ANIVERSARIO',if(year='$year_1',venta,0),0)) AS ANI_2020
-          ,sum(if(evento='ANIVERSARIO',if(year='$year',venta,0),0)) AS ANI_2021 
+          ,sum(if(evento='ANIVERSARIO',venta,0)) AS ANI_2021
+          ,sum(if(evento='AGROMANIA',if(year='$year_1',venta,0),0)) AS AGR_2021
+          ,sum(if(evento='AGROMANIA',if(year='$year',venta,0),0)) AS AGR_2022 
           ,(SELECT max(actualizado) FROM tablero_eventos WHERE YEAR = '$year' AND EVENTO = '$evento') AS ACTUALIZADO 
         from tablero_eventos
         WHERE

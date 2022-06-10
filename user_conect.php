@@ -6,7 +6,7 @@ $ip=$_SERVER['REMOTE_ADDR'];
 <head>
 <meta http-equiv="Page-Enter" content="RevealTrans(duration=0.5,Transition=23)">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Untitled Web Page</title>
+<title>NUEVO SIA AGROCAMPO</title>
 <meta name="generator" content="Antenna 3.0">
 <meta http-equiv="imagetoolbar" content="no">
 <link rel="stylesheet" type="text/css" href="antenna.css" id="css">

@@ -27,9 +27,43 @@ if($_SESSION["usuARio"] == 'OYUELAL' OR $_SESSION["usuARio"] == 'BARONF' OR $_SE
   if(date("H") >= 9 AND date("H") < 18 ){
     //ECHO "<br><br>EL SERVICIO DE CONSULTAS SE HABILITARA DE NUEVO A LAS 6.00 PM, GRACIAS POR SU COMPRENSIÓN "; DIE;
     
-  }
 }
-//ECHO "<br><br>EL SERVICIO DE CONSULTAS ESTA EN MANTENIMIENTO AGRADECEMOS SU COMPRESION "; DIE;
+}
+/*					 	
+	SI SE CAMBIA EL ESTADO A 1 DE ESTA VARIALBE HABILITAMOS EL MENSAJE DE MANTENIMIENTO Y RETIRAMOS EL ACCESO AL REPORTE 
+*/
+
+$HORA_ACTUAL   = DATE("H"); 
+$MINUTO_ACTUAL = DATE("I"); 
+
+/*	SOLO HABILITAR SI SE VAN A REALIZAR MANTENIMIENTOS EN LA PAGINA */
+$HABILITAR_MANTENIMIENTO = 0;
+if( $HABILITAR_MANTENIMIENTO === 1 ){
+	echo "<BR><BR>EL SERVICIO DE CONSULTAS ESTA EN MANTENIMIENTO AGRADECEMOS SU COMPRESION "; DIE;
+}
+/* SOLO HABILITAR SI SO */
+$HABILITAR_EVENTOS = 0;
+if( $HABILITAR_EVENTOS === 1 ){
+	if((($HORA_ACTUAL >= '7' && $HORA_ACTUAL <= '9' ) )|| $HORA_ACTUAL == '4' || $HORA_ACTUAL == '16'  || $HORA_ACTUAL >= '18' ){
+		echo 'H: '.$HORA_ACTUAL.' M:'.$MINUTO_ACTUAL;
+	}else{
+		echo "<BR><BR>EL SERVICIO DE CONSULTAS SE HABILITARÁ DE 07:00 A 09:00  Y DE 16:00 - 17:00, GRACIAS POR SU COMPRENSIÓN "; DIE;
+		}
+}
+
+
+
+
+	/*		SE AGREGAN LAS LIENAS DE TIEMPO PARA HABILITAR EL REPORTE EN 2 HORAS ESPECIFICICAS DEL DIA 	
+			TURNO 1 = 11 A 12
+			TURNO 2 = 4 A 5
+	*/
+
+
+
+
+
+	
 //conexiones a bases de datos
 include("../../user_con.php");
 if($_SESSION["clAVe"] == ''){ECHO "<BR><BR> Registrese de nuevo<a href='../../index.php'> aqui</a>"; DIE;}
@@ -1270,8 +1304,7 @@ if(count($labs) > 0){ ?>
 		</tr>
 		<tr>
 			<td bgcolor="lightyellow" colspan="2"> 
-				<input <? if($_POST['queVer'] == 'VENTAS'){echo "checked";}?> onchange="this.form.submit();" class="verloader"  type="radio" id="queVer" name="queVer" value="VENTAS">Ver Ventas 
-				/ Cuotas<br>
+				<input <? if($_POST['queVer'] == 'VENTAS'){echo "checked";}?> onchange="this.form.submit();" class="verloader"  type="radio" id="queVer" name="queVer" value="VENTAS"  >Ver Ventas / Cuotas<br>
 				<br>&nbsp;<br>
 				<input <? if($_POST['queVer'] == 'CARTERA'){echo "checked";}?> onchange="this.form.submit();" class="verloader"  type="radio" id="queVer" name="queVer" value="CARTERA">Ver Cartera / Vta por cliente<br>
 				<br>&nbsp;<br>

@@ -1,7 +1,7 @@
 <?php
 //POSTGRES ODDO
 class Conexion{
-    private static $Conexion;
+    public static $Conexion;
     
     public static function abrirConexion(){
         if(!isset(self::$Conexion)){           
@@ -15,13 +15,27 @@ class Conexion{
             }
         }
     }
-    
-    public static function cerrarConexion(){
-        if(isset(self::$Conexion)){
-            self::$Conexion = null;
-        }
+
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
+
+
+public static function cerrarConexion(){
+    if(isset(self::$Conexion)){
+        self::$Conexion = null;
     }
-    
+}
+
+
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==========================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
+
     public static function obtenerConexion(){
         if(isset(self::$Conexion)){
             return self::$Conexion;   
@@ -31,6 +45,7 @@ class Conexion{
         }
     }
 }
+
 
 /*
 Conexion::abrirConexion();

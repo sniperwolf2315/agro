@@ -60,7 +60,8 @@ left join product_template AS pt ON pp.product_tmpl_id=pt.id
 left join  mrp_bom AS mb ON mb.product_tmpl_id=pt.id
 left join product_list_item AS pli ON pli.product_id=pp.id
 left join product_category AS pc ON pc.id=pli.categ_id
-where pt.kit_ok='true';";
+where pt.kit_ok in ('true','false')
+LIMIT (100);";
   
 //$r=$r."<p>Ordenes de Compra Pendientes.</p>";//Fecha Inicio: ".$feini." - hasta: ".$fefin.".
 

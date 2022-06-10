@@ -1777,9 +1777,9 @@ while($numCat<=13){
     </head>
     <body style="background-color: #E4EAC0;">
        <?php
-       echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra en revision temporalmente. Gracias por su visita!. Los esperamos pronto. </STRONG></p></center>";
-       echo "<br /><br /><center><a href='https://www.agrocampo.com.co/'><img src='images/logoAG.png'></a></center>";  
-       exit();
+       //echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra en revision temporalmente. Gracias por su visita!. Los esperamos pronto. </STRONG></p></center>";
+       //echo "<br /><br /><center><a href='https://www.agrocampo.com.co/'><img src='images/logoAG.png'></a></center>";  
+       //exit();
        //#A7D43D
        ?>
         <div class="centrarancho">
@@ -2007,7 +2007,7 @@ while($numCat<=13){
                     <li><label class="parrafo">La imagen no representa el producto final.</label></li> 
                     <li><label class="parrafo">No incluye tr&aacute;mite de visas en los destinos que lo requieran.</label></li>
                     <li><label class="parrafo">Los viajes son para el titular de la cuenta con Agrocampo y son intransferibles.</label></li> 
-                    <li><label class="parrafo">Los viajes son redimibles &uacute;nicamente en temporada baja y durante el 2022. No incluye puentes ni festivos. La fecha debe ser acordada con m&iacute;nimo 3 meses de anticipaci&oacute;n, la cual no debe ser cambiada debido a los altos costos que implica.</label></li>
+                    <li><label class="parrafo">Los viajes son redimibles &uacute;nicamente en temporada baja y durante el 2023. No incluye puentes ni festivos. La fecha debe ser acordada con m&iacute;nimo 3 meses de anticipaci&oacute;n, la cual no debe ser cambiada debido a los altos costos que implica.</label></li>
                     <li><label class="parrafo">Se le enviara por correo electr&oacute;nico copia de este acuerdo como soporte del PLAN AÑO 2022, por favor impr&iacute;mala y cons&eacute;rvela.</label></li>
                     <br />CONDICIONES NOTA CR&Eacute;DITO:<br />
                     </ol>
@@ -2039,7 +2039,7 @@ while($numCat<=13){
                     </div>
                     <br />CONOCIENDO Y ACEPTANDO LAS SIGUIENTES CONDICIONES:<br />
                     <ol>
-                    <li><label class="parrafo">Concurso valido desde enero 1 de 2022 hasta el 21 de diciembre de 2022.</label></li> 
+                    <li><label class="parrafo">Concurso valido desde enero 1 de 2022 hasta el 21 de diciembre de 2023.</label></li> 
                     <li><label class="parrafo">V&aacute;lido &uacute;nicamente por compras de medicamentos de Pestar.</label></li> 
                     <li><label class="parrafo">La fecha l&iacute;mite para la entrega de premios ser&aacute; marzo de 2022.</label></li>
                     <li><label class="parrafo">Para la entrega del premio, el cliente debe tener un adecuado manejo del cr&eacute;dito y estar al d&iacute;a en cartera a enero de 2022.</label></li>

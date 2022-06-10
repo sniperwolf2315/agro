@@ -4,10 +4,17 @@ $emp=$_GET['emp'];
 $per=$_GET['per'];
 $periodo=explode("-",$per);
 $Pery=explode(" ",$periodo[1]);
+$sesionadmin = TRUE;
 
-$_SESSION[usuARio]='LOPEZJ';
+if ( $sesionadmin === true){
+  $_SESSION[usuARio]='VILLALOBOS';
+}else {
+  $_SESSION[usuARio]='LOPEZJ';
+}
 
-$autorizados = array('OYUELAL','PEREZD','NINOM','LOPEZJ','CARDOZOJ');
+
+
+$autorizados = array('OYUELAL','PEREZD','NINOM','LOPEZJ','CARDOZOJ' ,'VILLALOBOS');
 
 $autorizado='no';
 if( in_array( $_SESSION[usuARio], $autorizados) ){

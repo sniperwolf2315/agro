@@ -11,7 +11,9 @@
   $cuotasAD = array();
   
   $tipoExcluidosEspectro ="'07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','62','63','67','68','72','25','93','K4','ZB','KB','ZM'";
-  $tipoExcluidosVentas ="'07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','67','68','72','25','93','K4','ZM'";
+  //$tipoExcluidosVentas ="'07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','67','68','72','25','93','K4','ZM'";
+  //20220222. Carlos Castelblanco. Luego de revisar con Juan Felipe se elimina de la variable $tipoExcluidosVentas el valor 'ZM' :
+  $tipoExcluidosVentas ="'07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','67','68','72','25','93','K4'";
   
    if($_POST['desde'] ==''){
     if(substr($hoy,8,2) < 21 ){

@@ -17,6 +17,9 @@ if($emp[0] =='ZZ'){
 	$db2con = odbc_connect('IBM-COMERVET-P',$_SESSION['usuARio'],$_SESSION['clAVe']);
 	$db2conp = odbc_connect('IBM-COMERVET-P',$_SESSION['usuARio'],$_SESSION['clAVe']);
 	}
+
+
+
 //MYSQL
 $localhostL 	= 	'localhost'	; 	$userA 		= 	'sistemas'	;
 $claveO		=	'sistemasqgro'; 	$base_datosL	=	'agrobase'	;
@@ -28,7 +31,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: ";
   //echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
-		
+
+  
+
+  
 //POSTGRES
 $host = "localhost"; //192.169.34.251
 $port = "5432";

@@ -118,7 +118,7 @@ FROM SROISH SRBISH
 
 WHERE 
 	((CASE SRBISH.IHTYPP WHEN 1 THEN SRBISD.IDQTY ELSE SRBISD.IDQTY * -1 END )<> 0)
-	AND (SRBSOH.OHORDT NOT IN ('07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','67','68','72','25','93','K4','ZM'))
+	AND (SRBSOH.OHORDT NOT IN ('07','17','03','13','19','Z3','Z4','Z5','Z6','Z7','ZN','67','68','72','25','93','K4'))
 and SRBISH.IHIDAT BETWEEN '$desde'  AND '$hasta'
 $finfo
 $farea

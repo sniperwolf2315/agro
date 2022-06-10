@@ -1,5 +1,7 @@
-<? $areas = array('Call','Venta Externa','Almacen','Rappi','Pagina WEB');
-   if($_POST['area']=='Venta Externa'){
+<? 
+$areas = array('Call','Venta Externa','Almacen','Rappi','Pagina WEB');
+
+if($_POST['area']=='Venta Externa'){
    $cuotasAD = array('C_RECAUDO');
    }
    if($_POST['desde'] ==''){
@@ -182,7 +184,7 @@ if($_POST['info'] == 'Facturado' ){ $finfo = " AND ESTADO_ORDEN = 60 ";}
 if($_POST['info'] == 'Ord Venta' ){ $finfo = " AND ESTADO_ORDEN IN (10,20,30) ";}
 if($_POST['info'] == 'Fac y Ord venta' ){$finfo = '';}
 
-$paisano = VENDEDOR;
+$paisano = 'VENDEDOR';
 $paisano_nom = "(select SRBCTLSD.CTNAME from SRBCTLSD WHERE SRBCTLSD.CTSIGN = VENDEDOR)";
 
 $farea = " AND VENDEDOR IN ($fnom)";   
@@ -762,7 +764,7 @@ FROM SRODTA SRODTA
     
 	"; 
 	//echo $sql;
-if($_POST['queVer'] == 'CARTERA'){		 
+if($_POST['queVer'] == 'CARTERA'){	
 $result = odbc_exec($db2conp, $sql) ;
 }else{$result = '';} 
 	while($row = odbc_fetch_array($result)){
@@ -815,7 +817,6 @@ TRIM(SRBNAM.NANAME)||' | '||TRIM(NAARHA)
 ORDER BY
 SUM(CASE SRBISH.IHTYPP WHEN 1 THEN SRBISD.IDQTY ELSE SRBISD.IDQTY * -1 END) ASC 
 ";
-	
 if($_POST['queVer'] == 'CARTERA' or $_POST['queVer'] == 'PRODUCTO' or $_POST['queVer'] == 'GRUPO'){
 $result = odbc_exec($db2conp, $sql) ; //echo $sql; //echo odbc_errormsg();
 }else{$result = '';}
@@ -868,5 +869,4 @@ $result = odbc_exec($db2conp, $sql) ; //echo odbc_errormsg();
 	$tiPRO["$desc"]["CUOTA"] = $row["CUOTA"];
 	}
 */
-
 ?>

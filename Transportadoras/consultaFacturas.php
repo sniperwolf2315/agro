@@ -32,7 +32,8 @@ th, td {
                                   <span style="color: white; font-size: 0.6em;">&nbsp;(3 d&iacute;as)</span>
                                   </td>
                                   <td style="text-align: center;">
-                                  <span style="color: white;">Mes&nbsp;&nbsp;</span><select id="m" name="m" class="browser-default light-blue-text" style="width: 60px; height: 25px; font-size: 0.8em;">
+                                  <span style="color: white;">Mes&nbsp;&nbsp;</span>
+                                  <select id="m" name="m" class="browser-default light-blue-text" style="width: 60px; height: 25px; font-size: 0.8em;">
                                         <option value="" disabled selected>Mes</option>
                                         <?php
                                         $mes=1;
@@ -47,14 +48,15 @@ th, td {
                                   </select>
                                   </td>
                                   <td>
-                                  <span style="color: white;">A&ntilde;o&nbsp;&nbsp;</span><select id="a" name="a" class="browser-default light-blue-text" style="width: 80px; height: 25px; font-size: 0.8em;">
+                                  <span style="color: white;">A&ntilde;o&nbsp;&nbsp;</span>
+                                  <select id="a" name="a" class="browser-default light-blue-text" style="width: 80px; height: 25px; font-size: 0.8em;">
                                        <?php
                                        $anio=date("Y");
                                        for($i=2020;$i<=date("Y");$i++)
                                           {
                                             echo "<option value='".$i."'>".$i."</option>";
                                           }
-                                          echo "</select>";
+                                        //   echo "</select>";
 
                                        /*
                                         $anio=date("Y");
@@ -330,3 +332,10 @@ order by f.Orden desc
 
 </body>
 </html>
+<script >
+
+</script>
+<?
+//IMPRIMIR RESULTADO DE LOS PARAMETROS
+// echo 'Dia'.$_POST['df'] .'Mes '.$_POST['m'].' Anio '.$_POST['a'].'--'.$anio.'-----'.$diaI.'-----'.$diaF;
+?>

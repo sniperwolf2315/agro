@@ -89,6 +89,8 @@ $(window).load(function() {
 
 	if($_POST['informe'] == ''){ $_POST['informe'] = 'VENTA'; }
 	
+
+
 //SACA VENDEDORES POR AREA y areas
 $sql = "select AREA, IDVEND from VENDCUOTA2 order by IDVEND";
 $result = $mysqli->query($sql);

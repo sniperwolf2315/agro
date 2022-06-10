@@ -27,6 +27,7 @@ if(  $_SESSION["usuARio"] == 'BARONF'
        OR $_SESSION["usuARio"] == 'PINILLOSM'
        OR $_SESSION["usuARio"] == 'RODRIGUEZF'
        OR $_SESSION["usuARio"] == 'CALDERONM'
+       OR $_SESSION["usuARio"] == 'VILLALOBOS'
 		){ 
 		$_SESSION["dIr"] ='SI';
 		}
@@ -145,7 +146,7 @@ $vendcall = "'VEND321','VEND389','VEND414','VEND419','VEND437','VEND439','VEND44
 			 'VEND471','VEND473','VEND475','VEND480','VEND481','VEND483','VEND500','VEND501','VEND502','VEND503',
 			 'VEND510','VEND515','VEND525','VEND526','VEND530','VEND531','VEND532','VEND533','VEND535','VEND539','VEND540',
 			 'VEND542','VEND543','VEND553','VEND565','VEND577','VEND578','VEND579','VEND580','VEND583','VEND582','VEND584','VEND585',
-             'VEND588','VEND589','VEND590','VEND594'"; 
+             'VEND588','VEND589','VEND590','VEND594','VEND603'"; 
 			 //,'VEND524','VEND558','VEND550' son del almacen haciendo teletrabajo
 $arrcall= explode(",", $vendcall);
 if(in_array("'".trim($_POST['vendedor'])."'",$arrcall)){$_POST['area'] = "Call";}

@@ -2,9 +2,9 @@
     if(session_start()===FALSE){
         session_start();
     }
-echo "<br /><br /><p><center><STRONG>El Plan año 2020 se encuentra cerrado, Gracias por su visita! los esperamos su visita en <a href='https://www.agrocampo.com.co/'>Agrocampo - Todo en veterinaria</a></STRONG></p></center>";
+/*echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra cerrado, Gracias por su visita! los esperamos su visita en <a href='https://www.agrocampo.com.co/'>Agrocampo - Todo en veterinaria</a></STRONG></p></center>";
 echo "<br /><br /><center><img src='images/logoAG.png'></center>";
-exit();
+exit();*/
     //include('conexionodbc.php');
     //$consulta = "select * from zAgroPremios2019 WHERE Nombre like '%luis%'";
     //$resultado = odbc_exec($connection,$consulta);
@@ -1621,8 +1621,11 @@ exit();
     </head>
     <body style="background-color: #E4EAC0;">
        <?php
+
+       // validacion cierre plan año
+       
        echo "<br /><br /><p><center><STRONG>El Plan año 2022 se encuentra cerrado. Gracias por su visita!. Los esperamos pronto. </STRONG></p></center>";
-       echo "<br /><br /><center><a href='https://www.agrocampo.com.co/'><img src='images/logoAG.png'></a></center>";  
+       echo "<br /><br /><center><a href='https://www.pestar.com.co//'><img src='images/logopes.png'></a></center>";  
        exit();
        ?>
         <div class="centrarancho">
@@ -1880,9 +1883,9 @@ exit();
                     <div class="descricondiciones">
                     <br />CONOCIENDO Y ACEPTANDO LAS SIGUIENTES CONDICIONES:<br />
                     <ol>
-                    <li><label class="parrafo">El premio que se genere tomar&aacute; como base para su liquidaci&oacute;n las compras realizadas de enero 21 de 2022 hasta el 20 de enero de 2022.</label></li> 
-                    <li><label class="parrafo">V&aacute;lido &uacute;nicamente por compras de medicamentos de Pestar. La fecha l&iacute;mite para la entrega de premios ser&aacute; marzo de 2022. </label></li> 
-                    <li><label class="parrafo">Para la entrega del premio, el cliente debe tener un adecuado manejo del cr&eacute;dito y estar al d&iacute;a en cartera a enero de 2022. </label></li>
+                    <li><label class="parrafo">El premio que se genere tomar&aacute; como base para su liquidaci&oacute;n las compras realizadas de enero 21 de 2022 hasta el 20 de enero de 2023.</label></li> 
+                    <li><label class="parrafo">V&aacute;lido &uacute;nicamente por compras de medicamentos de Pestar. La fecha l&iacute;mite para la entrega de premios ser&aacute; marzo de 2023. </label></li> 
+                    <li><label class="parrafo">Para la entrega del premio, el cliente debe tener un adecuado manejo del cr&eacute;dito y estar al d&iacute;a en cartera a enero de 2023. </label></li>
                     <li><label class="parrafo">Las facturas emitidas en el periodo antes mencionado deben estar plenamente canceladas. </label></li>
                     <li><label class="parrafo">Una vez verificada la informaci&oacute;n de los puntos 1,2, 3, y 4 se emitir&aacute; al cliente la nota correspondiente y se remitir&aacute; v&iacute;a correo electr&oacute;nico. </label></li>
                     <li><label class="parrafo">Tras recibir la nota cr&eacute;dito, el cliente deber&aacute; manifestarnos por escrito a qu&eacute; facturas se aplicar&aacute;.</label></li>

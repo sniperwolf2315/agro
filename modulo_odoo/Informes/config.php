@@ -10,5 +10,7 @@ define('NOMBRE_SERVIDOR','192.168.6.13');
 define('PUERTO','5432');
 define('NOMBRE_USUARIO','agrocampo');
 define('PASSWORD','AgroAvancys2021!');
-define('BASE_DE_DATOS','capacitacion_agrocampo');
+// define('BASE_DE_DATOS','capacitacion_agrocampo'); /* dev */
+define('BASE_DE_DATOS','agrocampo'); /* dev */
+
 ?>

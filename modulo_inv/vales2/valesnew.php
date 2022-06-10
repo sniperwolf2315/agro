@@ -1,5 +1,6 @@
 <? session_start();
-
+//TODO: SE DEBE REALIZAR UNA FUNCION PARA EL PERDFIL DE SUPERADMIN
+$sesionadmin = TRUE;
 $autorizados = array('OYUELAL','PEREZD','NINOM');
 
 if( in_array( $_SESSION[usuARio], $autorizados) ){
@@ -15,7 +16,12 @@ if($_SESSION['emp'] != $_POST['empresa']){
 	}
 
 include("../user_con.php");
-$_SESSION[usuARio]='LOPEZJ';
+if ( $sesionadmin === true){
+  $_SESSION[usuARio]='VILLALOBOS';
+}else {
+  $_SESSION[usuARio]='LOPEZJ';
+}
+
 //$userse=$_SESSION[usuARio];
 $TMP = "_tmp";
 $tabla='rh_vale_vales';
@@ -326,7 +332,7 @@ $(window).load(function() {
                                 datoper = dato.split(' ');
                                 var i=1;
                                 var f=0;
-                                //(datoper[1] año
+                                //(datoper[1] aï¿½o
                                 var m='';
                                 datopermes = datoper[0].split('-');
                                 let meses = ['0', 'ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
@@ -627,7 +633,7 @@ header, footer, nav, aside {
     if($_POST['molonom'] ==''){
       $_POST['molonom'] =  'MOLECULA';
       }
-    //realiza la validació si es molecula o nomina
+    //realiza la validaciï¿½ si es molecula o nomina
     function cambiar_tipo(){
         if($_POST['molonom'] =='NOMINA'){
           $lineColor = "border-color:blue;";

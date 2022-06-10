@@ -173,7 +173,7 @@ if($sede =='CALLE 73'){ $dest .= "david.rodriguez@agrocampo.com.co"; }
 if($area =='CALL CENTER'){ $dest .= "juan.silva@agrocampo.com.co"; }  
 //correo electronico 
             $destinatario ="$dest"; 
-			$copiados = "gerencia@agrocampo.com.co; maria.nino@agrocampo.com.co; analista.sst@agrocampo.com.co"; //; proyectosagro@agrocampo.com.co
+			$copiados = "gerencia@agrocampo.com.co; maria.nino@agrocampo.com.co; analistasst@agrocampo.com.co;analistasga@agrocampo.com.co; analista.sst@agrocampo.com.co"; //; proyectosagro@agrocampo.com.co
 			
 			$asunto = $asuntotxt; 
 			$cuerpo = " 

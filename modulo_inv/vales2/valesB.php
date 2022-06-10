@@ -1,4 +1,5 @@
 <? session_start();
+$sesionadmin = false;
  
 if($_POST['empresa'] == ''){
 	$_POST['empresa'] = $_SESSION['emp'];
@@ -9,7 +10,12 @@ if($_SESSION['emp'] != $_POST['empresa']){
 	}
 
 include("../user_con.php");
-$_SESSION[usuARio]='LOPEZJ';
+if ( $sesionadmin === true){
+  $_SESSION[usuARio]='VILLALOBOS';
+}else {
+  $_SESSION[usuARio]='LOPEZJ';
+}
+
 //if($_SESSION["clAVe"] == ''){ECHO "<BR><BR> Registrese de nuevo aqui<a href='../../index.php'></a>"; DIE;}
 
 ?> 
