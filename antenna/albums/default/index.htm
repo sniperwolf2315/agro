@@ -1,0 +1,72 @@
+<? include("../../user_con.php"); if($_SESSION["NIVel"] < '44') {ECHO "NO TIENE LOS PERMISOS NECESARIOS PARA ESTA FUNCION"; DIE;}?> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Photo Gallery</title>
+<meta name="generator" content="Antenna Web Design Studio">
+<meta http-equiv="imagetoolbar" content="no">
+<link rel="stylesheet" type="text/css" href="../../../antenna.css" id="css">
+<script type="text/javascript" src="../../../antenna/auto.js"></script>
+<style type="text/css">
+.abs {position:absolute}
+.content { width:100%; height:100%; overflow:hidden; opacity:1; }
+.thumbs { position:relative; top:0; left:0; width:100%; height:100%; overflow:hidden; }
+.spc { float:left; cursor:pointer; margin-left:1px; margin-top:1px; }
+.tmb { width:100px; height:100px; overflow:hidden; }
+.lrg { border:1px solid; visibility:hidden; border-color:transparent; }
+.photocaption { width:100%; text-align:right; margin-top:10px; font-size:11px; }
+</style>
+<script type="text/javascript">
+var sFilen; var sCap; function expandPhoto(sFilename,sCaption){ sFilen=sFilename; sCap=sCaption;
+ fadeTo(document.getElementById('vlarge'),0,0.2); setTimeout('expandPhoto2(sFilen,sCap);',150); }
+function expandPhoto2(sFilename,sCaption){ var p=sFilename.lastIndexOf('/'); sFilename=sFilename.substr(p+7);
+ if (window.innerWidth) { var iMaxWidth=window.innerWidth; var iMaxHeight=window.innerHeight; var iOffset=window.pageYOffset; }
+ else { var iMaxWidth=document.body.offsetWidth; var iMaxHeight=document.body.offsetHeight; var iOffset=document.body.scrollTop; }
+ var iCaptionHeight=0; document.getElementById('photocaption').innerHTML=''; var iPadding=2;
+ fadeTo(document.getElementById('content'),21,1); var vContainer=document.getElementById('vlarge');
+ var vImage=document.getElementById('vlargei'); var vI=new Image(); vI.onload=function() { vImage.src=sFilename;
+ var iImgWidth=vI.width+iPadding; var iImgHeight=vI.height+iPadding; var iTotalHeight=iImgHeight+iCaptionHeight; var iShiftX=0;
+ var iShiftY=0; var iX=(iMaxWidth-iImgWidth+iShiftX)/2; var iY=(iMaxHeight-iTotalHeight+iShiftY)/2;
+ vContainer.style.left=iX+'px'; vContainer.style.top=iY+iOffset+'px'; vContainer.style.width=iImgWidth+'px';
+ vContainer.style.height=iTotalHeight+'px'; vContainer.style.visibility='visible'; fadeTo(vContainer,100,0.3); };
+ vI.src=sFilename; }
+function mouseY(e) { if (e.pageY) return e.pageY; else if (e.clientY) return e.clientY; else return 0; }
+function mouseX(e) { if (e.pageX) return e.pageX; else if (e.clientX) return e.clientX; else return 0; }
+function getWindowWidth() { if (window.innerWidth) return window.innerWidth; else return document.body.offsetWidth; }
+function getWindowHeight() { if (window.innerHeight) return window.innerHeight; else return document.body.offsetHeight; }
+var bThumbScroll=1; var vTmr; var iTgt=0; var bAxis='y';
+function scrollThumbs() { var iCur; if (bAxis=='y') iCur=document.getElementById('thumbs').offsetTop;
+ else iCur=document.getElementById('thumbs').offsetLeft; var iChange=Math.round((iTgt-iCur)/8); var iNew=iCur+iChange;
+ if (bAxis=='y') document.getElementById('thumbs').style.top=iNew+'px';
+ else document.getElementById('thumbs').style.left=iNew+'px'; }
+function startTimer() { if (bThumbScroll==1) vTmr=setInterval('scrollThumbs()',16); };
+function removePx(coord) { return parseInt(coord.slice(0,-2)); };
+function setTargetPos(e) { var iMax; var iDim; var iPos; if (bAxis=='y') { iMax=getWindowHeight(); iDim=100; iPos=mouseY(e)-50; }
+ else { iMax=getWindowWidth(); iDim=100; iPos=mouseX(e)-50; } var iL=iDim-iMax; var iY=Math.round(iL/((iMax-100)/iPos));
+ if (iY>iL) iY=iL; if (iY<0) iY=0; iTgt=-iY; }
+function stopTimer() { if (bThumbScroll==1) clearInterval(vTmr); };
+</script>
+
+</head><body class="global" style="" onload="var iTmp; if (bAxis=='x') iTmp=100-getWindowWidth();
+ else iTmp=100-getWindowHeight(); if (iTmp<0) bThumbScroll=0;"><div style=""><center>
+<div id="content" class="content" style="filter:alpha(opacity=100);">
+ <div id="thumbs" class="thumbs" onmouseover="startTimer();" onmousemove="setTargetPos(event);" onmouseout="stopTimer();">
+ <div class="spc"><div id="a0" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a0');" onmouseout="rollOut('a0');"><script type="text/javascript"><!-- 
+rollInit('a0','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a0i" src="thumb-a - flower.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div><div class="spc"><div id="a1" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a1');" onmouseout="rollOut('a1');"><script type="text/javascript"><!-- 
+rollInit('a1','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a1i" src="thumb-b - flower.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div><div class="spc"><div id="a2" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a2');" onmouseout="rollOut('a2');"><script type="text/javascript"><!-- 
+rollInit('a2','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a2i" src="thumb-c - leaf.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div><div class="spc"><div id="a3" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a3');" onmouseout="rollOut('a3');"><script type="text/javascript"><!-- 
+rollInit('a3','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a3i" src="thumb-d - toadstool.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div><div class="spc"><div id="a4" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a4');" onmouseout="rollOut('a4');"><script type="text/javascript"><!-- 
+rollInit('a4','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a4i" src="thumb-e - raindrops.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div><div class="spc"><div id="a5" class="tmb" style="opacity:0.8; filter:alpha(opacity=80)" onmouseover="rollOver('a5');" onmouseout="rollOut('a5');"><script type="text/javascript"><!-- 
+rollInit('a5','','', 100, 0.3,'','','' ); 
+// --></script><center><img id="a5i" src="thumb-f - flower.jpg" alt="" onclick="expandPhoto(this.src,'');"></center></div></div></div></div>
+</center></div>
+<div id="vlarge" class="abs hid lrg opr ptr" style="top:10px; left:10px; width:100px; height:100px;
+ opacity:0.02; filter:alpha(opacity=1);"><img id="vlargei" alt=""
+ onclick="fadeTo(document.getElementById('vlarge'),0,0.5); fadeTo(document.getElementById('content'),100,1); setTimeout('document.getElementById (\'vlarge\').style.visibility=\'hidden\';',600);">
+ <br><div id="photocaption" class="photocaption">Photo Caption</div></div>
+</body></html>

@@ -1,0 +1,26 @@
+body {
+    background-color: whitesmoke;
+}
+
+.scFormACTitle {
+    color           : black;
+    background-color: black;
+}
+
+.scFormACTitle1,
+#form2,
+#boton4 {
+    display: none;
+}
+
+tbody {
+    height    : 50px;
+    overflow-y: scroll;
+    width     : 100%;
+}
+
+
+tbody tr {
+    background-color: whitesmoke;
+    font-size       : 2vh;
+}

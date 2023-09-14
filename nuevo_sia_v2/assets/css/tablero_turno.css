@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+    color           : rgba(84, 82, 84, 0.73);
+    font-style      : normal;
+
+}
+
+.container {
+    background-color  : white;
+    max-height        : 100%;
+    min-height        : 50%;
+    max-width         : 100%;
+    text-align        : center;
+    justify-content   : center;
+    justify-items     : center;
+    /* color          : darkgreen; */
+}
+
+.sin_ped {
+    color: red;
+}
+
+.tablero1 {
+    background-color: white;
+    font-size       : 20px;
+    width           : 100%;
+
+}
+
+.tablero1 #tit_tab {
+    background-color: darkgray;
+    border-radius   : 30%;
+    font-size       : 20px;
+    width           : 100%;
+    color           : black;
+
+}
+
+table td {
+    text-align        : center;
+    justify-content   : center;
+    justify-items     : center;
+    /* font-style     : bold; */
+    border-spacing    : 10px;
+    border-bottom     : 10px;
+}
+
+table {
+    border            : solid 5px gray;
+    -webkit-box-shadow: 4px 10px 44px 9px rgba(84, 82, 84, 0.73);
+    -moz-box-shadow   : 4px 10px 44px 9px rgba(84, 82, 84, 0.73);
+    box-shadow        : 4px 10px 44px 9px rgba(84, 82, 84, 0.73);
+    font-style        : normal;
+
+}

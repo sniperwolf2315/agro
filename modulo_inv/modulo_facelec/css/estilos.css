@@ -1,0 +1,168 @@
+.check {
+    width:100px;
+    height:100px;
+}
+.lista {
+    width: 35%;
+    font-size: 4.2em;
+}
+.lista2 {
+    width: 32%;
+    font-size: 2.5em;
+}
+.e2 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    color: #F5F5DC;
+}
+.e3 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #F5F5DC;
+}
+.e1 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #F5F5DC;
+}
+.texto1 {
+    width: 80%;
+    font-size: 3em;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -o-border-radius:3px;
+    -ms-border-radius:3px;
+    border: 1.2px solid rgba(255,255,255,.1);
+    background-color: #FBFBFB;
+}
+.texto2 {
+    width: 90%;
+    font-size: 1.2em;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -o-border-radius:3px;
+    -ms-border-radius:3px;
+    border: 1.2px solid rgba(255,255,255,.1);
+    background-color: #FBFBFB;
+}
+.texto3 {
+    width: 20%;
+    font-size: 3em;
+    background-color: #FBFBFB;
+    }
+.texto4 {
+    width: 7%;
+    font-size: 3em;
+    background-color: #FBFBFB;
+    }
+.boton1 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  92%;
+    height: 2em;
+    font-size: 1.2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton2 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  10%;
+    height: 2em;
+    font-size: 1.2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton3 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  35%;
+    height: 2em;
+    font-size: 0.2em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton3alto {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  6em;
+    height: 2em;
+    font-size: 1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton4 {
+    background-color: #0C22D8;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  45%;
+    height: 2em;
+    font-size: 0.7em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton5 {
+    background-color: #408080;
+    color: white;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  15em;
+    height: 1.8em;
+    font-size: 0.8em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.marco {
+    width: 96%;
+    padding: 10px;
+    box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset 2px 2px 3px rgba(255,255,255,.1), 2px 2px 3px rgba(0,0,0,.1), 2px 2px 3px rgba(0,0,0,.1);
+    -moz-border-radius:8px;
+         -webkit-border-radius:8px;
+         -o-border-radius:8px;
+         -ms-border-radius:8px; 
+         border: 0.8px solid rgba(255,255,255,.1);
+         background-color: #AFBAA0;
+}
+.tabla {
+    width: 90%;
+    background-color: #AFBAA0;
+}
+.area {
+    width: 98%;
+    font-size: 4em;
+    background-color: #FBFBFB;
+}
+.ventana {
+    background-color: #AFBAA0;
+    width: 90%;
+    padding: 5px;
+    font-size: 4em;
+}
+.lista {
+    width: 20%;
+    font-size: 0.8em;
+}

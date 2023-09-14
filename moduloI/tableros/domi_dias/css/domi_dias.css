@@ -1,0 +1,125 @@
+.frxxs {
+    font-family: Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    color      : #000000;
+    font-size  : 7px;
+    direction  : ltr;
+}
+
+.frxs {
+    font-family: Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    color      : #000000;
+    font-size  : 9px;
+    direction  : ltr;
+}
+
+.frs {
+    font-family: Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    color      : #000000;
+    font-size  : 10px;
+    direction  : ltr;
+}
+
+.frm {
+    font-family: Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    color      : #000000;
+    font-size  : 11px;
+    direction  : ltr;
+}
+
+.frl {
+    font-family: Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    color      : #000000;
+    font-size  : 13px;
+    direction  : ltr;
+}
+
+.campo {
+    width: 90%
+}
+
+.boton {
+    width: 33%
+}
+
+
+.nover {
+    display: none
+}
+
+section {
+    border            : 1px solid whitesmoke;
+    -webkit-box-shadow: 0px 3px 20px -6px rgba(135, 10, 76, 1);
+    -moz-box-shadow   : 0px 3px 20px -6px rgba(135, 10, 76, 1);
+    box-shadow        : 0px 3px 20px -6px rgba(135, 10, 76, 1);
+    height            : 70%;
+    font-family       : Arial, Helvetica, sans-serif;
+    margin-bottom     : 25px;
+    font-size         : 5px;
+}
+
+section table {
+    font-size : 5px;
+    margin-top: 10px;
+}
+
+.global {
+    background-color: white;
+}
+
+div a button {
+    background-color: lightgray;
+    font-size       : 1vw;
+    font-family     : Georgia, 'Times New Roman', Times, serif;
+    border-radius   : 20px;
+    color           : darkgray;
+    font-weight     : bold;
+    border          : 1px solid #eee;
+    cursor          : pointer;
+
+}
+
+#msj_head {
+    margin-top        : 1%;
+    border            : 1px solid whitesmoke;
+    -webkit-box-shadow: 0px 3px 20px -6px rgb(156, 154, 155);
+    -moz-box-shadow   : 0px 3px 20px -6px rgb(156, 154, 155);
+    box-shadow        : 0px 3px 20px -6px rgb(156, 154, 155);
+    margin-left       : 15%;
+    margin-right      : 15%;
+    padding-bottom    : 1%;
+}
+
+.inf {
+    padding-top     : 1%;
+    border-radius   : 5px;
+    background-color: white;
+}
+
+div a button:hover {
+    background-color: green;
+    color           : white;
+
+}
+
+.aut::-webkit-scrollbar,
+#revividas::-webkit-scrollbar {
+    height: 90%;
+    width : 7px;
+    /* width of the entire scrollbar */
+}
+
+
+
+.aut::-webkit-scrollbar-track {
+    background: whitesmoke;
+    /* color of the tracking area */
+}
+
+.aut::-webkit-scrollbar-thumb {
+    background-color: green;
+    /* color of the scroll thumb */
+    border-radius   : 20px;
+    /* roundness of the scroll thumb */
+    border          : 2px solid darkgray;
+    /* creates padding around scroll thumb */
+}

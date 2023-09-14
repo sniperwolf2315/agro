@@ -1,0 +1,21 @@
+body {
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.container {
+    color: white;
+    background-color: lightgray;
+    font-size: 3vh;
+    width: 100%;
+
+}
+
+.body_delta {
+    color: white;
+    background-color: lightgray;
+    font-size: 3vh;
+    width: 100%;
+}

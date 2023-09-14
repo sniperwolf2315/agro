@@ -1,0 +1,14 @@
+#$IGNORAR ARCHIVOS DE SISTEMAS
+.DS_store
+
+#IGNORAR EXTENSIONES
+*.csv
+*.xlsx
+*.xls
+*.doc
+*.txt
+*.pdf
+#IGNORAR CARPETAS
+INF_GEREN_DEV_ERIK
+
+node_modules

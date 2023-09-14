@@ -1,0 +1,6 @@
+<?php
+    function INF_MES_COMERCIAL($PERIODO,$VER_TABLA){
+        $INF_MES_COMERCUAL = mssql_query ("EXEC [SP_001_INFORME_MES_COMERCIAL] '$PERIODO',$VER_TABLA ");
+    }
+
+?>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="index.css">
+  <title>Validacion</title>
+</head>
+<body>
+<!-- <body oncopy="return false" oncut="return false" onpaste="return false"> -->
+
+<section id="ifo_fac">
+  <span> Informacion de la factura</span>
+</section>
+    <!-- CRONOMETRO -->
+    <label>Tiempo: </label><br>
+    <div id="contenedor">
+      <div class="reloj" id="Horas">00</div>
+      <div class="reloj" id="Minutos">:00</div>
+      <div class="reloj" id="Segundos">:00</div>
+      <div class="reloj" id="Centesimas">:00</div>
+      <!-- 
+        
+        <input type="button" class="boton" id="inicio" value="Start &#9658;" onclick="inicio();">
+        <input type="button" class="boton" id="parar" value="Stop &#8718;" onclick="parar();" disabled>
+        <input type="button" class="boton" id="continuar" value="Resume &#8634;" onclick="inicio();" disabled>
+        <input type="button" class="boton" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled> 
+      </div> 
+      
+    -->
+    <!-- CRONOMETRO -->
+
+
+
+
+<form id="frm_validacion" name="frm_validacion" action="#" method="POST">
+  <!-- <input type="text" id="fac_validacion" name="fac_validacion" placeholder="Numero factura" > -->
+  <!-- <input type="text" id="fac_validacion" name="fac_validacion" value="S25000000206"> -->
+  <input type="text" id="fac_validacion" name="fac_validacion" value="S11002044852">
+  <br>
+
+  <input list="ls_data_packing" id="ls_alistadores" name="ls_alistadores" placeholder="Separador" required>
+  <datalist id="ls_data_packing" >
+      <option >78071116   | SADIER RAMIREZ     | RAMIREZS  </option>
+      <option >1094270928 | CESAR FRANCO       | FRANCO C  </option>
+      <option >1001345399 | JHON  VELASCO      | VELASCOD  </option>
+      <option >1018485061 | BRAYAN  ROJAS      | ROJASF    </option>
+      <option >1014292523 | DAVID  ORJUELA     | ESCOBARD  </option>
+      <option >1023953808 | ALEJANDRO GAONA    | GAONAL    </option>
+      <option >1018516214 | MIGUEL CORREA      | TAPIASM   </option>
+      <option >1023946970 | JUAN ALARCON       | ALARCONJ  </option>
+      <option >1012458562 | JONATHAN RODRIGUEZ | MIRANAJ   </option>
+      <option >1030652930 | HERNANA CORTES     | GORDILLOH </option>
+      <option >53051691   | DORA VASQUEZ       | VASQUEZD  </option>
+      <option >1003697692 | YEISON CAMACHO     | ROJASY    </option>
+  </datalist>
+  <br>
+  <input type="number" id="num_cajas" name="num_cajas" placeholder="Numero cajas"  required>
+  <br>
+  <input type="button"  value="Validar" id="consulta_factura" name="consulta_factura" class="consulta_factura" onclick="inicio();">
+  <!-- <input type="button"  value="Validar" id="consulta_factura" name="consulta_factura" class="consulta_factura" > -->
+  <input type="button"  value="Nueva validacion" onclick="clear_form()">
+</form>
+<br>
+<label for="">Informacion de Factura:</label>
+    <div id="pedidos_all" name="pedidos_all" class="pedidos_all"></div>
+<hr>
+    <div id="pedidos_alistamiento" name="pedidos_alistamiento" class="pedidos_alistamiento"></div>
+
+<script src="index.js"></script>
+<script src="cronometro.js"></script>
+</body>
+</html>
+
+<!--
+    http://192.168.1.115/moduloI/pdf/rotulo_formato.php?ov=8506008&cajas=1&emp=AG&tte=ERIK_PRUEBAS&guia=01020305&peso=10&tipo=caja 
+  
+    http://192.168.1.115/nuevo_sia_v2/modules/mod_validacion/
+    http://192.168.1.115/nuevo_sia_v2/modules/mod_validacion/rotulos_validacion.php
+
+    5000000209
+    5000000072
+    5000000227
+  -->

@@ -1,0 +1,40 @@
+.container {
+    text-align : center;
+    width      : 100%;
+    padding-top: 1%;
+    border     : 1px solid gray;
+}
+
+input[type=text],
+input[type=number] {
+    height       : 30px;
+    width        : 30%;
+    margin-top   : 5px;
+    border-radius: 20px;
+    padding-left : 15px;
+    border       : 2px solid #3699c0;
+    
+}
+
+#are_car,
+#are_act,
+#opt_ingr {
+    height       : 30px;
+    width        : 30%;
+    margin-top   : 5px;
+    border-radius: 20px;
+    padding-left : 15px;
+    border       : 2px solid #3699c0;
+}
+
+
+#btn_act_datos,
+#btn_enviar {
+    font-size       : 13px;
+    content         : "Actualizar";
+    background-color: green;
+    height          : 50px;
+    width           : 100%;
+    border-radius   : 20px;
+    color           : white;
+}

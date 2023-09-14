@@ -1,0 +1,240 @@
+body {
+    padding: 5%;
+}
+
+
+#texto_head {
+    font-size: 3vh;
+
+}
+
+table tr td {
+    font-size: 3vh;
+}
+
+table tr td select {
+    font-size    : 3vh;
+    border-radius: 20px;
+}
+
+.bar_menu {
+    background-color : #378c3a;
+    border-style     : groove;
+    height           : 40%;
+    border-radius    : 10px;
+    word-wrap        : break-word;
+    background-repeat: space;
+}
+
+input[type="text"] {
+    border-radius: 50px;
+    border       : solid 2px orangered;
+}
+
+.frr {
+    font-family : Verdana, Geneva, Bitstream Vera Sans, Tahoma, sans-serif;
+    font-size   : 3vh;
+    /* max-width:95%; */
+    position    : sticky;
+    z-index     : 0;
+    box-shadow  : 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.guarda {
+    cursor: pointer;
+}
+
+.ventana_terminal {
+    width           : 100%;
+    text-align      : center;
+    background-color: white;
+    font-size       : 25px;
+    color           : gray;
+}
+
+.ventana_terminal a:link {
+    text-decoration: none;
+    color          : black;
+}
+
+.tooltip {
+    position        : relative;
+    display         : inline-block;
+    /* border-bottom: 1px dotted black; */
+    text-decoration : none;
+}
+
+.tooltip .tooltiptext {
+    visibility      : hidden;
+    width           : 120px;
+    background-color: black;
+    color           : #fff;
+    text-align      : center;
+    border-radius   : 10px;
+    padding         : 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index : 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#menu_sancion {
+    text-decoration   : none;
+    color             : green;
+    /* font-size      : 100%; */
+
+}
+
+li {
+
+    list-style: none;
+    font-size : 13px;
+}
+
+li:before {
+    content  : "->";
+    font-size: 13px;
+}
+
+.msj_manetenimiento {
+    color    : red;
+    font-size: 3vh;
+}
+
+input[type="text"],
+#campo {
+    border-radius: 20px;
+}
+
+
+
+/*360 - 640*/
+@media only screen and (max-width : 650px) {
+
+
+    body {
+        width    : 100%;
+        font-size: 5px;
+    }
+
+    #bar_menu {
+        width           : 100%;
+        font-size       : 16px;
+        background-color: red;
+    }
+
+    table tr td {
+        width          : 10%;
+        font-size      : 14px;
+        text-align     : left;
+        justify-content: center;
+        justify-items  : center;
+    }
+
+    /* table tr td input {
+        width          : 10%;
+        font-size      : 16px;
+        text-align     : left;
+        justify-content: center;
+        justify-items  : center;
+    } */
+
+    .tooltip .tooltiptext {
+        display: none !important;
+    }
+
+    #guarda {
+        width : 30%;
+        height: 30px;
+    }
+
+}
+
+
+
+/* @media (min-width: 1008px) and (max-width: 2068px) {
+    #texto_head {
+        font-size: 2vw;
+
+    }
+
+    table tr td {
+        font-size: 1.5vw;
+
+    }
+} */
+
+
+
+/* @media only screen and (max-width : 320px) {
+    body {
+        background-color: red;
+  
+    }
+    }
+
+@media only screen and (min-width : 321px) {
+    body {
+        background-color: red;
+  
+    }
+    }
+    
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    body {
+        background-color: red;
+  
+    }
+  } */
+
+/* 
+@media screen and (max-width: 500px) {
+    body {
+        background-color: black;
+    }
+
+
+    .bar_menu {
+        background-color: red;
+        border-style    : groove;
+        height          : 33px;
+        border-radius   : 10px;
+}
+
+table tr td {
+    font-size: 11px;
+
+}
+
+ #menu_sancion{
+    text-decoration:none;
+    background-color:green;
+    font-size: 3vw;
+    display: flex;
+    } 
+
+}
+
+*/
+/* @media (min-width: 1008px) and (max-width: 2068px) { */
+/* @media (min-width: 500) and (max-width: 2068px) {
+    body {
+        background-color: black;
+    }
+
+    #texto_head {
+        font-size: 2vw;
+
+    }
+
+    table tr td {
+        font-size: 11px;
+
+    }
+} */

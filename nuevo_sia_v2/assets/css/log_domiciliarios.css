@@ -1,0 +1,265 @@
+.menu_teclado {
+    width           : 100%;
+    background-color: white;
+    text-align      : center;
+    justify-content : center;
+    justify-items   : center;
+    /* padding-left : 25%; */
+}
+
+div>h1 {
+    color     : darkgray;
+    width     : 100%;
+    text-align: center;
+}
+
+div form button {
+    background-color: orangered;
+
+}
+
+#div_frm_1 {
+    background-color     : white;
+    height               : 100%;
+    width                : 100%;
+    text-align           : center;
+    /*   display         : flex;
+    gap                  : 30px;
+    flex-wrap            : wrap; */
+
+}
+
+div form label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+
+
+.ced_domi {
+    /* background-color: white; */
+    height       : 40%;
+    width        : 20%;
+    font-size    : 20px;
+    border-color : rgba(85, 83, 201, 0.24);
+    border-radius: 20px;
+}
+
+.container_ {
+    text-align     : center;
+    justify-content: center;
+    align-items    : center;
+    /* display        : flex;
+    flex-wrap      : wrap; */
+    /* gap            : 20px; */
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#teclado {
+    width           : 100%;
+    background-color: white;
+    overflow        : hidden;
+    display         : grid;
+    text-align      : center;
+    justify-content : center;
+}
+
+
+#letras>span {
+    padding         : 10px;
+    width           : 32%;
+    text-align      : center;
+    margin          : 2px;
+    float           : left;
+    cursor          : pointer;
+    border-radius   : 50px;
+    background-color: darkgreen;
+    box-sizing      : border-box;
+    color           : white;
+
+}
+
+#letras>span:hover {
+
+    background-color: orangered;
+    border-radius   : 50px;
+    box-sizing      : border-box;
+    color           : black;
+    transform       : scale(1.1);
+    transition      : 0.5s;
+
+}
+
+
+#letras>span.space {
+    width           : calc(100% - 4px);
+    background-color: white;
+}
+
+#letras>span.space::after {
+    /* content         : "espace"; */
+    background-color: white;
+    color           : white;
+    height          : 1px;
+    height          : -15px;
+}
+
+#disposicionTeclado {
+    clear: both;
+}
+
+#disposicionTeclado>span {
+    /* color : gray; */
+    color : white;
+    cursor: pointer;
+    height: -15px;
+}
+
+#disposicionTeclado .selected {
+    font-weight: Bold;
+    color      : black;
+    cursor     : inherit;
+}
+
+input {
+    margin: 20px 0;
+}
+
+.btn_ced_domi {
+    border-radius: 15px;
+    width        : 10%;
+    height       : 2vw;
+    cursor       : pointer;
+    transition   : 0.5s;
+}
+
+@media screen and (max-width: 480px) {
+    #inner {
+        width: calc(100% - 80px);
+    }
+
+    .menu_teclado {
+        width           : 100%;
+        background-color: transparent;
+        text-align      : center;
+        justify-content : center;
+        justify-items   : center;
+        /* padding-left : 10%; */
+    }
+
+    div>h1 {
+        color     : darkgray;
+        width     : 100%;
+        text-align: center;
+    }
+
+    div form button {
+        background-color: orangered;
+    }
+
+    #div_frm_1 {
+        background-color: white;
+        height          : 100%;
+        width           : 100%;
+        text-align      : center;
+
+    }
+
+    .ced_domi {
+        /* background-color: white; */
+        height       : 40%;
+        width        : 20%;
+        font-size    : 20px;
+        border-color : rgba(85, 83, 201, 0.24);
+        border-radius: 20px;
+    }
+
+    .container_ {
+        text-align     : center;
+        justify-content: center;
+        align-items    : center;
+    }
+
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #teclado {
+        width           : 100%;
+        background-color: white;
+        overflow        : hidden;
+        display         : grid;
+        text-align      : center;
+        justify-content : center;
+    }
+
+
+    #letras>span {
+        padding         : 10px;
+        width           : 32%;
+        text-align      : center;
+        margin          : 2px;
+        float           : left;
+        cursor          : pointer;
+        border-radius   : 50px;
+        background-color: darkgreen;
+        box-sizing      : border-box;
+        color           : white;
+    }
+
+    #letras>span:hover {
+        box-sizing: border-box;
+        transform : scale(1.1);
+        transition: transform 0.2s;
+
+        border-radius   : 50px;
+        background-color: orangered;
+        color           : black;
+    }
+
+
+    #letras>span.space {
+        width           : calc(100% - 4px);
+        background-color: white;
+    }
+
+    #letras>span.space::after {
+        /* content         : "espace"; */
+        background-color: white;
+        color           : white;
+        height          : 1px;
+        height          : -15px;
+    }
+
+    #disposicionTeclado {
+        clear: both;
+    }
+
+    #disposicionTeclado>span {
+        /* color : gray; */
+        color : white;
+        cursor: pointer;
+        height: -15px;
+    }
+
+    #disposicionTeclado .selected {
+        font-weight: Bold;
+        color      : black;
+        cursor     : inherit;
+    }
+
+    input {
+        margin: 20px 0;
+    }
+
+    .btn_ced_domi {
+        border-radius: 15px;
+        width        : 10%;
+        height       : 40%;
+        cursor       : pointer;
+    }
+
+}

@@ -1,0 +1,6 @@
+array (
+  295359 => 
+  array (
+    0 => 'INSERT INTO CreacionItemsVenta (IDPedidoPagina,IDProducto,Cantidad,Estado,IDOrdenAgro,ValorItems,free_shipping) VALUES (\'295359\',\'111103951\',\'1\',\'0\',\'\',\'151317.8100\',\'0\'); ',
+  ),
+)

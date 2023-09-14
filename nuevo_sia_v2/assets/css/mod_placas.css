@@ -1,0 +1,36 @@
+.container {
+    width          : 100%;
+    text-align     : center;
+    justify-items  : center;
+    justify-content: center;
+    border         : 1px;
+
+}
+
+.tbl_placas {
+    height    : 500px;
+    overflow-y: scroll;
+}
+
+
+tr th {
+    border          : solid 2px gray;
+    border-radius   : 20px;
+    width           : 5%;
+    position        : sticky;
+    top             : 0;
+    background-color: white;
+}
+
+tr td input {
+    border       : solid 2px gray;
+    border-radius: 20px;
+    width        : 95%;
+}
+
+button {
+    background-color: whitesmoke;
+    border-radius   : 10px;
+    font-size       : 15px;
+    cursor          : cell;
+}

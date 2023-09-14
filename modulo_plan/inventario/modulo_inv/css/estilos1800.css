@@ -1,0 +1,115 @@
+.check {
+    width:35px;
+    height:35px;
+}
+.lista {
+    width: 80px;
+    font-size: 1.3em;
+}
+.e2 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 1em;
+    color: #F5F5DC;
+}
+.e1 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+}
+.texto1 {
+    width: 25%;
+    font-size: 1em;
+    background-color: #FBFBFB;
+}
+.texto2 {
+    width: 50%;
+    font-size: 1em;
+    background-color: #FBFBFB;
+}
+.texto3 {
+    width: 20%;
+    font-size: 1em;
+    background-color: #FBFBFB;
+    }
+.texto4 {
+    width: 7%;
+    font-size: 1em;
+    background-color: #FBFBFB;
+    }
+.boton1 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  70%;
+    font-size: 1.1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton2 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  8%;
+    font-size: 1.1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton3 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  18%;
+    font-size: 1.1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.boton4 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  25%;
+    font-size: 1.1em;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+.marco {
+    position: absolute;
+    left: 30%;
+    width: 40%;
+    padding: 10px;
+    box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset 2px 2px 3px rgba(255,255,255,.1), 2px 2px 3px rgba(0,0,0,.1), 2px 2px 3px rgba(0,0,0,.1);
+    -moz-border-radius:8px;
+         -webkit-border-radius:8px;
+         -o-border-radius:8px;
+         -ms-border-radius:8px; 
+         border: 0.8px solid rgba(255,255,255,.1);
+         background-color: #AFBAA0;
+}
+
+.tabla {
+    width: 90%;
+    background-color: #AFBAA0;
+}
+
+.area {
+    width: 80%;
+    font-size: 1.5em;
+    background-color: #FBFBFB;
+}
+.ventana {
+    background-color: #AFBAA0;
+    width: 90%;
+    padding: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    color:  red;
+    font-weight: bold;
+}

@@ -1,0 +1,110 @@
+.check {
+    width:100px;
+    height:100px;
+}
+.lista {
+    width: 35%;
+    font-size: 4.2em;
+}
+.lista2 {
+    width: 32%;
+    font-size: 2.5em;
+}
+.e2 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 1em;
+    color: #F5F5DC;
+}
+.e1 {
+    font-family: tahoma;
+    vertical-align: top;
+    width: 100%;
+    font-size: 3em;
+    font-weight: bold;
+}
+.texto1 {
+    width: 80%;
+    font-size: 3em;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -o-border-radius:3px;
+    -ms-border-radius:3px;
+    border: 1.2px solid rgba(255,255,255,.1);
+    background-color: #FBFBFB;
+}
+.texto2 {
+    width: 90%;
+    font-size: 4em;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -o-border-radius:3px;
+    -ms-border-radius:3px;
+    border: 1.2px solid rgba(255,255,255,.1);
+    background-color: #FBFBFB;
+}
+.texto3 {
+    width: 20%;
+    font-size: 3em;
+    background-color: #FBFBFB;
+    }
+.texto4 {
+    width: 7%;
+    font-size: 3em;
+    background-color: #FBFBFB;
+    }
+.boton1 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  92%;
+    font-size: 3.8em;
+}
+.boton2 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  10%;
+    font-size: 3.8em;
+}
+.boton3 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  35%;
+    font-size: 3.8em;
+}
+.boton4 {
+    background-color: #FE7203;
+    font-family: Tahoma;
+    font-weight: bold;
+    width:  45%;
+    font-size: 3.8em;
+}
+.marco {
+    width: 96%;
+    padding: 10px;
+    box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset 2px 2px 3px rgba(255,255,255,.1), 2px 2px 3px rgba(0,0,0,.1), 2px 2px 3px rgba(0,0,0,.1);
+    -moz-border-radius:8px;
+         -webkit-border-radius:8px;
+         -o-border-radius:8px;
+         -ms-border-radius:8px; 
+         border: 0.8px solid rgba(255,255,255,.1);
+         background-color: #AFBAA0;
+}
+.tabla {
+    width: 90%;
+    background-color: #AFBAA0;
+}
+.area {
+    width: 98%;
+    font-size: 4em;
+    background-color: #FBFBFB;
+}
+.ventana {
+    background-color: #AFBAA0;
+    width: 90%;
+    padding: 5px;
+    font-size: 4em;
+}

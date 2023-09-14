@@ -1,0 +1,31 @@
+.num_orden {
+    width        : 50%;
+    font-size    : 2vh;
+    margin-bottom: 10px;
+}
+
+#buscar_pedido {
+    background-color: #00ac95;
+    color           : white;
+    font-weight     : bold;
+}
+
+#id {
+    width : 5px;
+    height: 5px;
+}
+
+ul li {
+    text-align: left;
+}
+
+details summary {
+    background-color: lightgray;
+    border-radius   : 10px;
+    height          : 7vh;
+    list-style      : none;
+    margin-top      : 3px;
+    padding-left    : 2%;
+    text-align      : left;
+    width           : 100%;
+}

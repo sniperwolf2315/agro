@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+}
+
+.container {
+    padding-top  : 2%;
+    padding-left : 15%;
+    padding-right: 15%;
+    font-size    : 2.5vh;
+}
+
+.container input {
+    height          : 25px;
+    background-color: whitesmoke;
+}
+
+.container select {
+    height: 35px;
+}
+
+#encabezado {
+    text-align     : center;
+    justify-content: center;
+    justify-items  : center;
+    align-items    : center;
+}
